@@ -1,0 +1,154 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.header h1 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.statusCard {
+  gap: var(--space-4);
+  min-height: 148px;
+}
+
+.cardTopline,
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardLabel {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+}
+
+.cardValue {
+  display: block;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.cardMeta {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.callCard {
+  gap: var(--space-6);
+  min-height: 360px;
+}
+
+.sectionHeader h2 {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+.callList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.callRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.callInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.callInfo strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.callTrack {
+  height: 8px;
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+}
+
+.callTrack span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: inherit;
+}
+
+.revealCurtain {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-modal) + 3);
+  background:
+    linear-gradient(140deg, rgba(17, 17, 17, 0.18), rgba(17, 17, 17, 0)),
+    var(--color-accent);
+  pointer-events: none;
+  animation: dashboardReveal 1150ms cubic-bezier(.42, 0, .18, 1) forwards;
+  will-change: transform;
+}
+
+.revealCurtain::before {
+  position: absolute;
+  top: 0;
+  left: -88px;
+  width: 88px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(47, 111, 94, 0), rgba(47, 111, 94, 0.46), rgba(47, 111, 94, 0.96));
+  content: "";
+}
+
+.revealCurtain::after {
+  position: absolute;
+  top: 0;
+  left: -22px;
+  width: 22px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.14);
+  filter: blur(10px);
+  content: "";
+}
+
+@keyframes dashboardReveal {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(104vw);
+  }
+}

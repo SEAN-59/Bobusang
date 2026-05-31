@@ -1,0 +1,107 @@
+.accountForm {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: end;
+}
+
+.accountDisclosure {
+  margin-top: 0;
+}
+
+.accountForm :global(.form-group) {
+  margin-bottom: 0;
+}
+
+.formActionRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-4);
+}
+
+.formActionRow :global(.btn) {
+  min-width: 180px;
+}
+
+.accountName {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+}
+
+.emailCell {
+  color: var(--color-text-secondary);
+}
+
+.resetModalStack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.resetNotice {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.passwordCopyCard {
+  position: relative;
+  display: flex;
+  min-height: 148px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-6) 56px;
+  background: var(--color-accent-light);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font: inherit;
+  transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.passwordCopyCard:hover,
+.passwordCopyCard:focus-visible {
+  background: var(--color-bg);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+  outline: none;
+}
+
+.passwordLabel {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+}
+
+.passwordValue {
+  color: var(--color-accent-text);
+  font-size: 44px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.passwordCopyIcon {
+  position: absolute;
+  top: 50%;
+  right: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: opacity var(--transition-base);
+}
+
+.passwordCopyCard:hover .passwordCopyIcon,
+.passwordCopyCard:focus-visible .passwordCopyIcon {
+  opacity: 1;
+}

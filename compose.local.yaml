@@ -1,0 +1,30 @@
+name: bobusang-local
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bobusang:local
+    container_name: bobusang-local-app
+    restart: unless-stopped
+    env_file:
+      - path: .env.local
+        format: raw
+    environment:
+      APP_ENV: "local"
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: "7002"
+      HOSTNAME: "0.0.0.0"
+    ports:
+      - "7002:7002"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:' + process.env.PORT + '/api/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

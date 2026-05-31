@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+<div class="gl-wrap">
+
+  <!-- ══ Nav ══ -->
+  <nav class="gl-nav" id="glNav">
+    <div class="gl-nav-header">
+      <h2>Design System</h2>
+      <p>v1.0 · Minimal / Noto Sans KR</p>
+    </div>
+    <div class="gl-nav-picker">
+      <label>포인트 컬러</label>
+      <input type="color" id="accentPicker" value="#3b6ef5" />
+      <span id="accentHex">#3b6ef5</span>
+    </div>
+    <button class="dark-mode-btn" id="darkModeBtn" onclick="toggleDarkMode()">
+      <span class="dark-mode-icon">🌙</span>
+      <span class="dark-mode-label">다크 모드</span>
+      <span class="dark-mode-status" id="darkModeStatus">Off</span>
+    </button>
+    <div class="gl-nav-group">
+      <div class="gl-nav-group-label">Foundation</div>
+      <a class="gl-nav-link active" href="#s-color">Color</a>
+      <a class="gl-nav-link" href="#s-typography">Typography</a>
+      <a class="gl-nav-link" href="#s-spacing">Spacing</a>
+      <a class="gl-nav-link" href="#s-radius">Radius &amp; Shadow</a>
+    </div>
+    <div class="gl-nav-group">
+      <div class="gl-nav-group-label">Guidelines</div>
+      <a class="gl-nav-link" href="#s-token-rules">Token Rules</a>
+      <a class="gl-nav-link" href="#s-state-rules">State Rules</a>
+      <a class="gl-nav-link" href="#s-a11y">Accessibility</a>
+      <a class="gl-nav-link" href="#s-responsive">Responsive</a>
+      <a class="gl-nav-link" href="#s-usage">Usage Examples</a>
+    </div>
+    <div class="gl-nav-group">
+      <div class="gl-nav-group-label">Components</div>
+      <a class="gl-nav-link" href="#s-button">Button</a>
+      <a class="gl-nav-link" href="#s-form">Form</a>
+      <a class="gl-nav-link" href="#s-checkbox">Checkbox &amp; Radio</a>
+      <a class="gl-nav-link" href="#s-toggle">Toggle / Switch</a>
+      <a class="gl-nav-link" href="#s-badge">Badge</a>
+      <a class="gl-nav-link" href="#s-card">Card</a>
+      <a class="gl-nav-link" href="#s-tabs">Tabs</a>
+      <a class="gl-nav-link" href="#s-table">Table</a>
+      <a class="gl-nav-link" href="#s-dropdown">Dropdown</a>
+      <a class="gl-nav-link" href="#s-modal">Modal / Dialog</a>
+      <a class="gl-nav-link" href="#s-toast">Toast / Snackbar</a>
+      <a class="gl-nav-link" href="#s-tooltip">Tooltip</a>
+      <a class="gl-nav-link" href="#s-breadcrumb">Breadcrumb</a>
+      <a class="gl-nav-link" href="#s-pagination">Pagination</a>
+      <a class="gl-nav-link" href="#s-skeleton">Skeleton / Loading</a>
+      <a class="gl-nav-link" href="#s-empty">Empty State</a>
+    </div>
+    <div class="gl-nav-group" style="padding-bottom:var(--space-6)">
+      <div class="gl-nav-group-label">Navigation</div>
+      <a class="gl-nav-link" href="#s-topbar">Topbar</a>
+      <a class="gl-nav-link" href="#s-sidebar">Sidebar</a>
+      <a class="gl-nav-link" href="#s-mixed">Topbar + Sidebar</a>
+      <a class="gl-nav-link" href="#s-mobile">Mobile Hamburger</a>
+    </div>
+  </nav>
+
+  <!-- ══ Content ══ -->
+  <main class="gl-content">
+    <div class="gl-content-inner">
+
+      <!-- COLOR -->
+      <section class="gl-section" id="s-color">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Foundation</p>
+          <h2 class="gl-section-title">Color</h2>
+          <p class="gl-section-desc">포인트 컬러는 HSL Hue 값 하나만 교체하면 전체 파생 색상이 자동으로 바뀝니다.</p>
+        </div>
+        <div class="gl-sub">
+          <p class="gl-sub-title">Accent — 파생 6단계</p>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent)"></div><div class="swatch-info"><p>accent</p><span>--color-accent</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent-hover)"></div><div class="swatch-info"><p>accent-hover</p><span>--color-accent-hover</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent-light)"></div><div class="swatch-info"><p>accent-light</p><span>--color-accent-light</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent-subtle)"></div><div class="swatch-info"><p>accent-subtle</p><span>--color-accent-subtle</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent-border)"></div><div class="swatch-info"><p>accent-border</p><span>--color-accent-border</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-accent-text)"></div><div class="swatch-info"><p>accent-text</p><span>--color-accent-text</span></div></div>
+          </div>
+        </div>
+        <div class="gl-sub">
+          <p class="gl-sub-title">Neutral</p>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background:#fff;border-bottom:1px solid var(--color-border)"></div><div class="swatch-info"><p>bg</p><span>#ffffff</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-bg-secondary)"></div><div class="swatch-info"><p>bg-secondary</p><span>#f8f8f8</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-bg-tertiary)"></div><div class="swatch-info"><p>bg-tertiary</p><span>#f0f0f0</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-border)"></div><div class="swatch-info"><p>border</p><span>#e5e5e5</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-text-muted)"></div><div class="swatch-info"><p>text-muted</p><span>#999999</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-text-primary)"></div><div class="swatch-info"><p>text-primary</p><span>#111111</span></div></div>
+          </div>
+        </div>
+        <div class="gl-sub">
+          <p class="gl-sub-title">Semantic</p>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-success)"></div><div class="swatch-info"><p>success</p><span>hsl(142,60%,42%)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-warning)"></div><div class="swatch-info"><p>warning</p><span>hsl(38,90%,48%)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-danger)"></div><div class="swatch-info"><p>danger</p><span>hsl(0,68%,50%)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background:var(--color-info)"></div><div class="swatch-info"><p>info</p><span>hsl(200,70%,44%)</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPOGRAPHY -->
+      <section class="gl-section" id="s-typography">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Foundation</p>
+          <h2 class="gl-section-title">Typography</h2>
+          <p class="gl-section-desc">Noto Sans KR 단일 패밀리. 크기보다 웨이트로 위계를 표현합니다.</p>
+        </div>
+        <div class="type-row"><div class="type-meta"><p>4xl / Bold</p><span>3rem · 700</span></div><div style="font-size:var(--font-size-4xl);font-weight:700;letter-spacing:var(--letter-spacing-tight);line-height:1.15">서비스 제목</div></div>
+        <div class="type-row"><div class="type-meta"><p>3xl / Bold</p><span>2.25rem · 700</span></div><div style="font-size:var(--font-size-3xl);font-weight:700;letter-spacing:var(--letter-spacing-tight)">페이지 제목</div></div>
+        <div class="type-row"><div class="type-meta"><p>2xl / Semibold</p><span>1.875rem · 600</span></div><div style="font-size:var(--font-size-2xl);font-weight:600">섹션 제목</div></div>
+        <div class="type-row"><div class="type-meta"><p>xl / Semibold</p><span>1.5rem · 600</span></div><div style="font-size:var(--font-size-xl);font-weight:600">카드 타이틀</div></div>
+        <div class="type-row"><div class="type-meta"><p>lg / Medium</p><span>1.25rem · 500</span></div><div style="font-size:var(--font-size-lg);font-weight:500">소제목 텍스트</div></div>
+        <div class="type-row"><div class="type-meta"><p>base / Regular</p><span>1rem · 400</span></div><div>본문 텍스트입니다. 일반적인 콘텐츠와 설명에 사용됩니다.</div></div>
+        <div class="type-row"><div class="type-meta"><p>sm / Regular</p><span>0.875rem · 400</span></div><div style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">보조 텍스트, 레이블, 설명에 사용됩니다.</div></div>
+        <div class="type-row"><div class="type-meta"><p>xs / Medium</p><span>0.75rem · 500</span></div><div style="font-size:var(--font-size-xs);font-weight:500;letter-spacing:var(--letter-spacing-wide);color:var(--color-text-muted)">CAPTION · LABEL · OVERLINE</div></div>
+      </section>
+
+      <!-- SPACING -->
+      <section class="gl-section" id="s-spacing">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Foundation</p>
+          <h2 class="gl-section-title">Spacing</h2>
+          <p class="gl-section-desc">4px 기본 단위 스케일.</p>
+        </div>
+        <div id="spacingRows"></div>
+      </section>
+
+      <!-- RADIUS & SHADOW -->
+      <section class="gl-section" id="s-radius">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Foundation</p>
+          <h2 class="gl-section-title">Radius &amp; Shadow</h2>
+          <p class="gl-section-desc">그림자는 최소한으로 사용합니다. 경계는 border 또는 여백으로 표현하는 것을 권장합니다.</p>
+        </div>
+        <div class="gl-sub">
+          <p class="gl-sub-title">Border Radius</p>
+          <div class="radius-grid">
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-sm)"></div><div class="radius-label">sm / 4px</div></div>
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-md)"></div><div class="radius-label">md / 8px</div></div>
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-lg)"></div><div class="radius-label">lg / 12px</div></div>
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-xl)"></div><div class="radius-label">xl / 16px</div></div>
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-2xl)"></div><div class="radius-label">2xl / 24px</div></div>
+            <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-full)"></div><div class="radius-label">full</div></div>
+          </div>
+        </div>
+        <div class="gl-sub">
+          <p class="gl-sub-title">Shadow</p>
+          <div class="shadow-grid">
+            <div class="shadow-item"><div class="shadow-box" style="border:1px solid var(--color-border)"></div><div class="shadow-label">none (border)</div></div>
+            <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-xs)"></div><div class="shadow-label">xs</div></div>
+            <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-sm)"></div><div class="shadow-label">sm</div></div>
+            <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-md)"></div><div class="shadow-label">md</div></div>
+            <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-lg)"></div><div class="shadow-label">lg</div></div>
+            <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-xl)"></div><div class="shadow-label">xl</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOKEN RULES -->
+      <section class="gl-section" id="s-token-rules">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Guideline</p>
+          <h2 class="gl-section-title">Token Rules</h2>
+          <p class="gl-section-desc">컴포넌트는 직접 색상·간격·그림자를 고정하지 않고, 가능한 한 디자인 토큰을 통해 표현합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Token Usage</div><div class="preview-body">
+          <table class="guide-table">
+            <thead><tr><th>분류</th><th>사용 기준</th><th>대표 토큰</th></tr></thead>
+            <tbody>
+              <tr><td>Color</td><td>브랜드 색상은 accent 계열, 결과/상태는 semantic 계열만 사용합니다.</td><td><code>--color-accent</code>, <code>--color-success</code>, <code>--color-danger</code></td></tr>
+              <tr><td>Spacing</td><td>컴포넌트 내부 여백은 4px 스케일을 사용하고, 임의 px 값은 고정 크기 아이콘에만 제한합니다.</td><td><code>--space-2</code>, <code>--space-4</code>, <code>--space-6</code></td></tr>
+              <tr><td>Radius</td><td>입력·버튼·반복 항목은 md를 기본으로 두고, 큰 컨테이너만 lg 이상을 사용합니다.</td><td><code>--radius-md</code>, <code>--radius-lg</code></td></tr>
+              <tr><td>Shadow</td><td>일반 구분은 border를 우선하고, floating UI에만 그림자를 적용합니다.</td><td><code>--shadow-xs</code>, <code>--shadow-lg</code></td></tr>
+              <tr><td>Motion</td><td>상태 변화는 base, 오버레이·토스트 진입은 slow 범위 안에서 처리합니다.</td><td><code>--transition-base</code>, <code>--transition-slow</code></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+        <pre class="code-block">.my-component {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}</pre>
+      </section>
+
+      <!-- STATE RULES -->
+      <section class="gl-section" id="s-state-rules">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Guideline</p>
+          <h2 class="gl-section-title">State Rules</h2>
+          <p class="gl-section-desc">모든 조작 요소는 기본, hover, active, focus, disabled, loading, error 상태 중 필요한 상태를 일관된 방식으로 표현합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Interaction State</div><div class="preview-body">
+          <div class="guide-grid">
+            <div class="guide-panel"><h3><span class="state-chip">Hover</span></h3><p>색상 또는 배경만 살짝 변화시켜 탐색 가능한 요소임을 보여줍니다.</p></div>
+            <div class="guide-panel"><h3><span class="state-chip">Active</span></h3><p>버튼은 눌림 순간에 1px 이동 또는 약한 scale을 사용합니다.</p></div>
+            <div class="guide-panel"><h3><span class="state-chip">Focus</span></h3><p>키보드 포커스는 accent light ring으로 표시하며 hover와 구분합니다.</p></div>
+            <div class="guide-panel"><h3><span class="state-chip">Disabled</span></h3><p>opacity와 not-allowed cursor를 함께 사용하고 클릭 로직도 차단합니다.</p></div>
+            <div class="guide-panel"><h3><span class="state-chip">Loading</span></h3><p>중복 실행을 막고 cursor를 wait로 바꾸며 spinner를 함께 표시합니다.</p></div>
+            <div class="guide-panel"><h3><span class="state-chip">Error</span></h3><p>danger border와 보조 메시지를 함께 제공하고, 색상만으로 의미를 전달하지 않습니다.</p></div>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;button class="btn btn-md btn-primary is-loading" aria-busy="true" aria-disabled="true"&gt;
+  &lt;span class="btn-spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  저장 중
+&lt;/button&gt;</pre>
+      </section>
+
+      <!-- ACCESSIBILITY -->
+      <section class="gl-section" id="s-a11y">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Guideline</p>
+          <h2 class="gl-section-title">Accessibility</h2>
+          <p class="gl-section-desc">마우스 없이도 주요 컴포넌트를 열고, 이동하고, 닫을 수 있어야 합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Keyboard Contract</div><div class="preview-body">
+          <table class="guide-table">
+            <thead><tr><th>컴포넌트</th><th>키보드 동작</th><th>필수 속성</th></tr></thead>
+            <tbody>
+              <tr><td>Dropdown</td><td><span class="kbd">↓</span> 열기, <span class="kbd">↑</span>/<span class="kbd">↓</span> 항목 이동, <span class="kbd">Esc</span> 닫기</td><td><code>aria-expanded</code>, 항목은 <code>button</code></td></tr>
+              <tr><td>Date Input</td><td><span class="kbd">Enter</span> 또는 <span class="kbd">↓</span> 달력 열기, 방향키로 날짜 이동, <span class="kbd">Esc</span> 닫기</td><td><code>aria-haspopup="dialog"</code>, <code>aria-expanded</code></td></tr>
+              <tr><td>Toast</td><td>닫기 버튼은 포커스 가능해야 하며 알림 영역은 live region으로 노출합니다.</td><td><code>role="status"</code>, <code>aria-live="polite"</code></td></tr>
+              <tr><td>Modal</td><td><span class="kbd">Esc</span> 닫기, 첫 조작 요소로 포커스 이동</td><td><code>role="dialog"</code>, <code>aria-modal="true"</code></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </section>
+
+      <!-- RESPONSIVE -->
+      <section class="gl-section" id="s-responsive">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Guideline</p>
+          <h2 class="gl-section-title">Responsive</h2>
+          <p class="gl-section-desc">데스크톱 기준 컴포넌트라도 640px 이하에서는 터치 폭, 줄바꿈, 스크롤 정책을 먼저 정합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Breakpoint Rule</div><div class="preview-body">
+          <div class="guide-grid">
+            <div class="guide-panel"><h3>Table</h3><p>데이터 컬럼은 임의 축약하지 않고 가로 스크롤을 허용합니다. 핵심 액션은 첫 화면에 남깁니다.</p></div>
+            <div class="guide-panel"><h3>Form</h3><p>날짜 범위, 버튼 그룹, 입력 그룹은 640px 이하에서 세로 스택으로 전환합니다.</p></div>
+            <div class="guide-panel"><h3>Toast</h3><p>모바일에서는 좌우 16px 여백을 두고 하단 전체 폭을 사용합니다.</p></div>
+            <div class="guide-panel"><h3>Overlay</h3><p>Modal footer 버튼은 세로 배치하고, 긴 본문은 내부 스크롤로 제한합니다.</p></div>
+          </div>
+        </div></div>
+        <pre class="code-block">@media (max-width: 640px) {
+  .date-range-row { flex-direction: column; }
+  .table-wrap { overflow-x: auto; }
+  .toast { width: 100%; min-width: 0; }
+}</pre>
+      </section>
+
+      <!-- USAGE EXAMPLES -->
+      <section class="gl-section" id="s-usage">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Guideline</p>
+          <h2 class="gl-section-title">Usage Examples</h2>
+          <p class="gl-section-desc">자주 쓰는 컴포넌트는 최소 마크업과 연결 함수를 함께 복사할 수 있게 유지합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Common Snippets</div><div class="preview-body">
+          <div class="guide-grid">
+            <div class="guide-panel"><h3>Button</h3><pre class="code-block">&lt;button class="btn btn-md btn-primary"&gt;저장&lt;/button&gt;</pre></div>
+            <div class="guide-panel"><h3>Select</h3><pre class="code-block">&lt;button class="input custom-select-btn" id="sel-btn" onclick="toggleDropdown('sel')" aria-expanded="false"&gt;선택&lt;/button&gt;</pre></div>
+            <div class="guide-panel"><h3>Date</h3><pre class="code-block">&lt;input class="input date-input" readonly aria-haspopup="dialog" aria-expanded="false" onclick="openCalendar('cal','date')"&gt;</pre></div>
+            <div class="guide-panel"><h3>Toast</h3><pre class="code-block">showToast('success', '저장 완료', '변경사항이 저장되었습니다.');</pre></div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- BUTTON -->
+      <section class="gl-section" id="s-button">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Component</p>
+          <h2 class="gl-section-title">Button</h2>
+          <p class="gl-section-desc">버튼은 화면별 액션을 실행하는 트리거입니다. 기본 컴포넌트는 상태 표현을 제공하고, 클릭 이후의 업무 로직은 사용하는 화면에서 연결합니다.</p>
+        </div>
+        <div class="preview"><div class="preview-label">Variant</div><div class="preview-body"><div class="comp-row"><button class="btn btn-md btn-primary" onclick="showButtonAction('Primary')">Primary</button><button class="btn btn-md btn-secondary" onclick="showButtonAction('Secondary')">Secondary</button><button class="btn btn-md btn-ghost" onclick="showButtonAction('Ghost')">Ghost</button><button class="btn btn-md btn-danger" onclick="showButtonAction('Danger')">Danger</button></div></div></div>
+        <div class="preview"><div class="preview-label">Size</div><div class="preview-body"><div class="comp-row"><button class="btn btn-sm btn-primary" onclick="showButtonAction('Small')">Small</button><button class="btn btn-md btn-primary" onclick="showButtonAction('Medium')">Medium</button><button class="btn btn-lg btn-primary" onclick="showButtonAction('Large')">Large</button></div></div></div>
+        <div class="preview"><div class="preview-label">Interaction State</div><div class="preview-body"><div class="comp-row"><button class="btn btn-md btn-primary">Default</button><button class="btn btn-md btn-primary is-hover">Hover</button><button class="btn btn-md btn-primary is-pressed">Pressed</button><button class="btn btn-md btn-primary is-focus">Focus</button><button class="btn btn-md btn-primary is-loading" aria-busy="true" aria-disabled="true" onclick="showButtonAction('Loading')"><span class="btn-spinner" aria-hidden="true"></span>Loading</button><button class="btn btn-md btn-primary" disabled>Disabled</button></div></div></div>
+        <div class="preview"><div class="preview-label">Full Width</div><div class="preview-body"><button class="btn btn-md btn-primary btn-block" onclick="showButtonAction('Full width')">Full width action</button></div></div>
+        <pre class="code-block">&lt;button class="btn btn-md btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary" onclick="submitForm()"&gt;저장&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary is-loading" aria-busy="true" aria-disabled="true"&gt;
+  &lt;span class="btn-spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  저장 중
+&lt;/button&gt;
+&lt;button class="btn btn-sm btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-lg btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-md btn-danger"&gt;Danger&lt;/button&gt;</pre>
+      </section>
+
+      <!-- FORM -->
+      <section class="gl-section" id="s-form">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Component</p>
+          <h2 class="gl-section-title">Form</h2>
+          <p class="gl-section-desc">사용자 입력을 받는 모든 요소입니다. Checkbox·Radio·Toggle은 별도 섹션을 참고하세요.</p>
+        </div>
+
+        <!-- Text Input States -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Text Input — States</p>
+          <div class="preview"><div class="preview-label">기본 / 필수 / 오류 / 비활성</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="form-group">
+              <label class="form-label">기본 입력</label>
+              <input class="input" type="text" placeholder="내용을 입력하세요" />
+              <p class="form-hint">입력에 대한 힌트 텍스트입니다.</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">필수 항목 <span style="color:var(--color-danger);margin-left:2px">*</span></label>
+              <input class="input" type="text" placeholder="필수 입력 항목입니다" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">오류 상태</label>
+              <input class="input is-error" type="text" value="잘못된 값" />
+              <p class="form-error">올바른 이메일 형식을 입력해주세요.</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">비활성</label>
+              <input class="input" type="text" value="수정할 수 없는 값" disabled />
+            </div>
+          </div></div></div>
+        </div>
+
+        <!-- Error Shake & Scroll -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Error — Shake &amp; Scroll to Field</p>
+          <p class="gl-section-desc" style="margin-bottom:var(--space-4)">
+            유효성 검사 실패 시 해당 필드로 자동 스크롤하고 쉐이킹 효과를 줍니다.<br>
+            아래 폼에서 빈 칸을 두고 제출 버튼을 눌러 동작을 확인하세요.
+          </p>
+          <div class="preview"><div class="preview-label">Live Demo — 빈 칸으로 제출</div><div class="preview-body gray">
+            <div style="max-width:360px;margin:0 auto;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-8);">
+              <h3 style="font-size:var(--font-size-lg);font-weight:var(--font-weight-semibold);margin-bottom:var(--space-6)">회원가입</h3>
+              <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" for="demo-name">이름 <span style="color:var(--color-danger)">*</span></label>
+                  <input class="input" id="demo-name" type="text" placeholder="홍길동" />
+                  <p class="form-error" id="demo-name-err" style="display:none">이름을 입력해주세요.</p>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" for="demo-email">이메일 <span style="color:var(--color-danger)">*</span></label>
+                  <input class="input" id="demo-email" type="text" placeholder="name@example.com" />
+                  <p class="form-error" id="demo-email-err" style="display:none">올바른 이메일 형식을 입력해주세요.</p>
+                  <ul class="validation-list" id="email-rules">
+                    <li class="validation-rule" data-rule="email-format">올바른 이메일 형식</li>
+                  </ul>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label" for="demo-pw">비밀번호 <span style="color:var(--color-danger)">*</span></label>
+                  <div class="input-icon-wrap">
+                    <input class="input input-with-icon-right" id="demo-pw" type="password" placeholder="비밀번호를 입력하세요" />
+                    <button class="input-icon input-icon-right input-icon-btn" onclick="toggleDemoPw()" title="비밀번호 표시" tabindex="-1">
+                      <svg id="pw-eye-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8C1 8 3.5 3 8 3s7 5 7 5-2.5 5-7 5S1 8 1 8z" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.4"/></svg>
+                    </button>
+                  </div>
+                  <p class="form-error" id="demo-pw-err" style="display:none">아래 조건을 모두 충족해주세요.</p>
+                  <ul class="validation-list" id="pw-rules">
+                    <li class="validation-rule" data-rule="pw-length">8자 이상</li>
+                    <li class="validation-rule" data-rule="pw-upper">영문 대문자 포함</li>
+                    <li class="validation-rule" data-rule="pw-lower">영문 소문자 포함</li>
+                    <li class="validation-rule" data-rule="pw-number">숫자 포함</li>
+                    <li class="validation-rule" data-rule="pw-special">특수문자 포함 (!@#$%^&*)</li>
+                  </ul>
+                </div>
+                <button class="btn btn-lg btn-primary" style="width:100%;margin-top:var(--space-2)" onclick="submitDemo()">가입하기</button>
+              </div>
+            </div>
+          </div></div>
+          <pre class="code-block">/* 1. 쉐이킹 애니메이션 */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  15%     { transform: translateX(-6px); }
+  30%     { transform: translateX(6px); }
+  45%     { transform: translateX(-4px); }
+  60%     { transform: translateX(4px); }
+  75%     { transform: translateX(-2px); }
+  90%     { transform: translateX(2px); }
+}
+.input.shake { animation: shake 0.45s ease; }
+
+/* 2. 오류 표시 + 쉐이킹 + 스크롤 */
+function showFieldError(input, msgEl, message) {
+  input.classList.add('is-error');
+  msgEl.textContent = message;
+  msgEl.style.display = 'block';
+
+  // 쉐이킹 — 이미 실행 중이면 재시작
+  input.classList.remove('shake');
+  requestAnimationFrame(() => input.classList.add('shake'));
+  input.addEventListener('animationend', () => input.classList.remove('shake'), { once: true });
+}
+
+function clearFieldError(input, msgEl) {
+  input.classList.remove('is-error');
+  msgEl.style.display = 'none';
+}
+
+function validateAndSubmit(fields) {
+  let firstError = null;
+
+  fields.forEach(({ input, msgEl, validate, message }) => {
+    if (!validate(input.value)) {
+      showFieldError(input, msgEl, message);
+      if (!firstError) firstError = input;
+    } else {
+      clearFieldError(input, msgEl);
+    }
+  });
+
+  if (firstError) {
+    // 첫 번째 오류 필드로 스크롤
+    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    firstError.focus();
+    return false;
+  }
+  return true;
+}</pre>
+        </div>
+
+        <!-- Textarea -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Textarea</p>
+          <div class="preview"><div class="preview-label">글자 수 카운터 포함</div><div class="preview-body"><div style="max-width:400px">
+            <div class="form-group" style="margin-bottom:0">
+              <div class="textarea-field" id="charWrapper">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-2)">
+                  <label class="form-label" style="margin-bottom:0">내용</label>
+                  <span id="charCount" style="font-size:var(--font-size-xs);color:var(--color-text-muted)">0 / 200</span>
+                </div>
+                <textarea class="input textarea" id="charTextarea" rows="4" placeholder="내용을 입력하세요..." maxlength="200" oninput="updateCharCount()"></textarea>
+              </div>
+              <p class="form-hint">최대 200자까지 입력 가능합니다.</p>
+            </div>
+          </div></div></div>
+          <div class="preview"><div class="preview-label">부모 컨테이너 안에서만 확장</div><div class="preview-body">
+            <div class="textarea-boundary">
+              <label class="form-label">제한 영역</label>
+              <textarea class="input textarea textarea-resize-contained" rows="3" placeholder="이 영역 안에서만 크기를 조절합니다."></textarea>
+            </div>
+          </div></div>
+          <pre class="code-block">textarea.input,
+.textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  resize: vertical;
+}
+
+.textarea.textarea-resize-contained {
+  resize: both;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}</pre>
+        </div>
+
+        <!-- Select -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Select</p>
+          <div class="preview"><div class="preview-label">Custom Select (Dropdown 기반)</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-5)">
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">플랫폼 선택</label>
+              <div class="dropdown" style="width:100%">
+                <button class="input custom-select-btn" onclick="toggleDropdown('sel1')" id="sel1-btn" aria-expanded="false">
+                  <span id="sel1-value" style="color:var(--color-text-disabled)">선택하세요</span>
+                  <span class="select-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu" id="sel1" style="width:100%">
+                  <button class="dropdown-item" onclick="selectOption('sel1','','선택하세요',true)">선택하세요</button>
+                  <button class="dropdown-item" onclick="selectOption('sel1','ios','iOS (APNs)')">iOS (APNs)</button>
+                  <button class="dropdown-item" onclick="selectOption('sel1','android','Android (FCM)')">Android (FCM)</button>
+                  <button class="dropdown-item" onclick="selectOption('sel1','web','Web Push')">Web Push</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">비활성 Select</label>
+              <div class="dropdown" style="width:100%">
+                <button class="input custom-select-btn" disabled>
+                  <span>iOS (APNs)</span>
+                  <span class="select-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">오류 상태</label>
+              <div class="dropdown" style="width:100%">
+                <button class="input custom-select-btn is-error" onclick="toggleDropdown('sel2')" id="sel2-btn" aria-expanded="false">
+                  <span id="sel2-value" style="color:var(--color-text-disabled)">선택하세요</span>
+                  <span class="select-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu" id="sel2" style="width:100%">
+                  <button class="dropdown-item" onclick="selectOption('sel2','ios','iOS (APNs)')">iOS (APNs)</button>
+                  <button class="dropdown-item" onclick="selectOption('sel2','android','Android (FCM)')">Android (FCM)</button>
+                </div>
+              </div>
+              <p class="form-error">플랫폼을 선택해주세요.</p>
+            </div>
+
+          </div></div></div>
+          <pre class="code-block">&lt;div class="dropdown" style="width:100%"&gt;
+  &lt;button class="input custom-select-btn" onclick="toggleDropdown('sel')" id="sel-btn" aria-expanded="false"&gt;
+    &lt;span id="sel-value"&gt;선택하세요&lt;/span&gt;
+    &lt;span class="select-arrow" aria-hidden="true"&gt;
+      &lt;svg viewBox="0 0 16 16" fill="none"&gt;
+        &lt;path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="dropdown-menu" id="sel" style="width:100%"&gt;
+    &lt;button class="dropdown-item" onclick="selectOption('sel','ios','iOS')"&gt;iOS&lt;/button&gt;
+    &lt;button class="dropdown-item" onclick="selectOption('sel','android','Android')"&gt;Android&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <!-- Search Input -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Search Input</p>
+          <div class="preview"><div class="preview-label">검색창</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-4)">
+
+            <!-- 기본 검색 -->
+            <div style="display:flex;gap:var(--space-2)">
+              <div class="input-icon-wrap" style="flex:1">
+                <span class="input-icon input-icon-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <input class="input input-with-icon-left" id="searchInput1" type="text" placeholder="검색어를 입력하세요" />
+              </div>
+              <button class="btn btn-md btn-primary" onclick="doSearch('searchInput1')">검색</button>
+            </div>
+
+            <!-- 필터 초기화 포함 -->
+            <div style="display:flex;gap:var(--space-2)">
+              <div class="input-icon-wrap" style="flex:1;position:relative">
+                <span class="input-icon input-icon-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <input class="input input-with-icon-left input-with-icon-right" id="searchInput2" type="text" placeholder="검색어를 입력하세요" oninput="toggleClearBtn(this)" />
+                <button class="input-icon input-icon-right input-icon-btn" id="clearBtn" style="display:none;right:var(--space-2)" onclick="clearSearch('searchInput2')" title="초기화">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <button class="btn btn-md btn-secondary refresh-btn" onclick="clearSearch('searchInput2', this)" style="flex-shrink:0;width:38px;padding:0" title="필터 초기화">
+                <svg class="refresh-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 1.5-4.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 5v4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="btn btn-md btn-primary" onclick="doSearch('searchInput2')">검색</button>
+            </div>
+
+          </div></div></div>
+        </div>
+
+        <!-- Input with Icon -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Input with Icon</p>
+          <div class="preview"><div class="preview-label">좌측 / 우측 아이콘</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-4)">
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">좌측 아이콘 (이메일)</p>
+              <div class="input-icon-wrap">
+                <span class="input-icon input-icon-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <input class="input input-with-icon-left" type="email" placeholder="이메일을 입력하세요" />
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">우측 아이콘 (비밀번호 표시/숨김)</p>
+              <div class="input-icon-wrap">
+                <input class="input input-with-icon-right" type="password" value="password123" id="pwInput" />
+                <button class="input-icon input-icon-right input-icon-btn" onclick="togglePw()" title="비밀번호 표시/숨김">
+                  <svg id="pw-eye" width="15" height="15" viewBox="0 0 16 16" fill="none">
+                    <path d="M1 8C1 8 3.5 3 8 3s7 5 7 5-2.5 5-7 5S1 8 1 8z" stroke="currentColor" stroke-width="1.4"/>
+                    <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.4"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">양쪽 아이콘 (금액 — 3자리 콤마 자동)</p>
+              <div class="input-icon-wrap">
+                <span class="input-icon input-icon-left" style="font-size:var(--font-size-sm);font-weight:var(--font-weight-medium);color:var(--color-text-muted)">₩</span>
+                <input class="input input-with-icon-both" type="text" id="currencyInput" placeholder="0" inputmode="numeric" />
+                <span class="input-icon input-icon-right" style="font-size:var(--font-size-xs);font-weight:var(--font-weight-medium);color:var(--color-text-muted);right:var(--space-3)">KRW</span>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">좌측 아이콘 (전화번호 — 자동 하이픈)</p>
+              <div class="input-icon-wrap">
+                <span class="input-icon input-icon-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 1h3l1.5 4L6 6.5c1 2 2.5 3.5 4.5 4.5L12 9.5l4 1.5v3a1 1 0 01-1 1C6 15 1 10 1 2a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+                </span>
+                <input class="input input-with-icon-left" type="text" id="phoneInput" placeholder="010-0000-0000" inputmode="numeric" maxlength="13" />
+              </div>
+            </div>
+          </div></div></div>
+          <pre class="code-block">&lt;div class="input-icon-wrap"&gt;
+  &lt;span class="input-icon input-icon-left"&gt;✉&lt;/span&gt;
+  &lt;input class="input input-with-icon-left" type="email" placeholder="이메일" /&gt;
+&lt;/div&gt;
+
+&lt;div class="input-icon-wrap"&gt;
+  &lt;input class="input input-with-icon-right" type="password" /&gt;
+  &lt;button class="input-icon input-icon-right input-icon-btn"&gt;👁&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <!-- Input Group -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Input Group</p>
+          <div class="preview"><div class="preview-label">버튼/텍스트 결합형</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-4)">
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">우측 버튼</p>
+              <div class="input-group">
+                <input class="input" type="text" placeholder="초대 코드를 입력하세요" />
+                <button class="btn btn-md btn-primary input-group-btn">적용</button>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">좌측 접두어</p>
+              <div class="input-group">
+                <span class="input-group-addon">https://</span>
+                <input class="input" type="text" placeholder="your-domain.com" />
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">양쪽 결합</p>
+              <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input class="input" type="text" placeholder="username" />
+                <span class="input-group-addon">.com</span>
+              </div>
+            </div>
+          </div></div></div>
+          <pre class="code-block">&lt;div class="input-group"&gt;
+  &lt;span class="input-group-addon"&gt;https://&lt;/span&gt;
+  &lt;input class="input" type="text" placeholder="domain.com" /&gt;
+  &lt;button class="btn btn-md btn-primary input-group-btn"&gt;확인&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <!-- Date Input -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">Date Input</p>
+          <div class="preview"><div class="preview-label">날짜 / 날짜 범위</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-4)">
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">날짜 선택</label>
+              <div class="input-icon-wrap">
+                <input class="input input-with-icon-right date-input" type="text" id="datePicker1" placeholder="YYYY-MM-DD" readonly aria-haspopup="dialog" aria-expanded="false" onclick="openCalendar('cal1','datePicker1')" />
+                <button class="input-icon input-icon-right input-icon-btn date-icon-btn" onclick="openCalendar('cal1','datePicker1')" tabindex="-1">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v2M11 1v2M1 6h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">날짜 범위</label>
+              <div class="date-range-row">
+                <div class="input-icon-wrap">
+                  <input class="input input-with-icon-right date-input" type="text" id="datePicker2" placeholder="시작일" readonly aria-haspopup="dialog" aria-expanded="false" onclick="openCalendar('cal2','datePicker2')" />
+                  <button class="input-icon input-icon-right input-icon-btn date-icon-btn" onclick="openCalendar('cal2','datePicker2')" tabindex="-1">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v2M11 1v2M1 6h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </button>
+                </div>
+                <span class="date-separator">~</span>
+                <div class="input-icon-wrap">
+                  <input class="input input-with-icon-right date-input" type="text" id="datePicker3" placeholder="종료일" readonly aria-haspopup="dialog" aria-expanded="false" onclick="openCalendar('cal3','datePicker3')" />
+                  <button class="input-icon input-icon-right input-icon-btn date-icon-btn" onclick="openCalendar('cal3','datePicker3')" tabindex="-1">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v2M11 1v2M1 6h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div></div></div>
+        </div>
+
+        <!-- Calendar Portal (body에 append됨) -->
+
+        <!-- File Upload -->
+        <div class="gl-sub">
+          <p class="gl-sub-title">File Upload</p>
+          <div class="preview"><div class="preview-label">파일 첨부</div><div class="preview-body"><div style="max-width:400px;display:flex;flex-direction:column;gap:var(--space-4)">
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">버튼 스타일</p>
+              <div style="display:flex;align-items:center;gap:var(--space-3)">
+                <label class="btn btn-sm btn-secondary" style="cursor:pointer">
+                  파일 선택
+                  <input type="file" style="display:none" />
+                </label>
+                <span style="font-size:var(--font-size-sm);color:var(--color-text-muted)">선택된 파일 없음</span>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">드래그 앤 드롭 영역</p>
+              <label class="file-drop" id="fileDrop">
+                <input type="file" style="display:none" multiple onchange="handleFileSelect(this)" />
+                <div class="file-drop-icon">📎</div>
+                <p class="file-drop-title">파일을 여기에 끌어다 놓거나</p>
+                <p class="file-drop-sub"><span style="color:var(--color-accent);cursor:pointer">클릭하여 선택</span>하세요</p>
+                <p class="file-drop-limit">PNG, JPG, PDF · 최대 10MB</p>
+              </label>
+              <div id="fileList" style="margin-top:var(--space-2);display:flex;flex-direction:column;gap:var(--space-2)"></div>
+            </div>
+          </div></div></div>
+          <pre class="code-block">&lt;!-- 버튼 스타일 --&gt;
+&lt;label class="btn btn-sm btn-secondary"&gt;
+  파일 선택
+  &lt;input type="file" style="display:none" /&gt;
+&lt;/label&gt;
+
+&lt;!-- 드래그 앤 드롭 --&gt;
+&lt;label class="file-drop"&gt;
+  &lt;input type="file" style="display:none" multiple /&gt;
+  &lt;div class="file-drop-icon"&gt;📎&lt;/div&gt;
+  &lt;p class="file-drop-title"&gt;파일을 여기에 끌어다 놓거나&lt;/p&gt;
+  &lt;p class="file-drop-sub"&gt;클릭하여 선택하세요&lt;/p&gt;
+&lt;/label&gt;</pre>
+        </div>
+
+      </section>
+
+      <!-- CHECKBOX & RADIO -->
+      <section class="gl-section" id="s-checkbox">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Component</p>
+          <h2 class="gl-section-title">Checkbox &amp; Radio</h2>
+        </div>
+        <div class="preview"><div class="preview-label">Checkbox</div><div class="preview-body">
+          <div class="check-group">
+            <label class="check-item">
+              <input type="checkbox" checked />
+              <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="check-label">선택됨 (Checked)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" />
+              <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="check-label">미선택 (Unchecked)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" disabled />
+              <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="check-label disabled">비활성 (Disabled)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" checked disabled />
+              <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="check-label disabled">비활성 선택됨</span>
+            </label>
+          </div>
+        </div></div>
+        <div class="preview"><div class="preview-label">Indeterminate (중간 상태)</div><div class="preview-body">
+          <div class="check-group">
+            <label class="check-item indeterminate-item">
+              <input type="checkbox" class="is-indeterminate" />
+              <span class="check-box check-box-indeterminate">
+                <svg width="10" height="10" viewBox="0 0 10 10">
+                  <path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/>
+                  <line class="indeterminate-path" x1="2" y1="5" x2="8" y2="5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="check-label">일부 선택됨 (Indeterminate)</span>
+            </label>
+            <label class="check-item indeterminate-item">
+              <input type="checkbox" class="is-indeterminate" disabled />
+              <span class="check-box check-box-indeterminate" style="opacity:.4">
+                <svg width="10" height="10" viewBox="0 0 10 10">
+                  <path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/>
+                  <line class="indeterminate-path" x1="2" y1="5" x2="8" y2="5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="check-label disabled">비활성 중간 상태</span>
+            </label>
+          </div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:var(--space-4);padding-left:var(--space-3)">전체 선택/해제 시 사용하는 패턴입니다.</p>
+        </div></div>
+
+        <pre class="code-block">&lt;!-- JS로 indeterminate 설정 --&gt;
+&lt;label class="check-item"&gt;
+  &lt;input type="checkbox" class="is-indeterminate" /&gt;
+  &lt;span class="check-box check-box-indeterminate"&gt;
+    &lt;svg width="10" height="10" viewBox="0 0 10 10"&gt;
+      &lt;line class="indeterminate-path" x1="5" y1="5" x2="5" y2="5"
+        stroke="#fff" stroke-width="2" stroke-linecap="round"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="check-label"&gt;일부 선택됨&lt;/span&gt;
+&lt;/label&gt;</pre>
+
+        <div class="preview"><div class="preview-label">Radio</div><div class="preview-body">
+            <label class="check-item">
+              <input type="radio" name="r1" checked />
+              <span class="radio-box"><span class="radio-dot"></span></span>
+              <span class="check-label">옵션 A</span>
+            </label>
+            <label class="check-item">
+              <input type="radio" name="r1" />
+              <span class="radio-box"><span class="radio-dot"></span></span>
+              <span class="check-label">옵션 B</span>
+            </label>
+            <label class="check-item">
+              <input type="radio" name="r1" />
+              <span class="radio-box"><span class="radio-dot"></span></span>
+              <span class="check-label">옵션 C</span>
+            </label>
+            <label class="check-item">
+              <input type="radio" name="r2" disabled />
+              <span class="radio-box"><span class="radio-dot"></span></span>
+              <span class="check-label disabled">비활성</span>
+            </label>
+          </div></div>
+
+        <pre class="code-block">&lt;!-- Checkbox --&gt;
+  &lt;input type="checkbox" /&gt;
+  &lt;span class="check-box"&gt;
+    &lt;svg width="10" height="10" viewBox="0 0 10 10"&gt;
+      &lt;path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="check-label"&gt;레이블&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Radio --&gt;
+&lt;label class="check-item"&gt;
+  &lt;input type="radio" name="group" /&gt;
+  &lt;span class="radio-box"&gt;&lt;span class="radio-dot"&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="check-label"&gt;레이블&lt;/span&gt;
+&lt;/label&gt;</pre>
+
+        <!-- 설명 텍스트 포함 -->
+        <div class="preview"><div class="preview-label">설명 텍스트 포함</div><div class="preview-body">
+          <div class="check-group">
+            <label class="check-item" style="align-items:flex-start">
+              <input type="checkbox" checked style="margin-top:2px" />
+              <span class="check-box" style="margin-top:1px">
+                <svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg>
+              </span>
+              <span>
+                <span class="check-label" style="display:block">이메일 수신 동의 <span style="color:var(--color-danger);margin-left:2px">*</span></span>
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:2px;display:block">마케팅 및 서비스 업데이트 이메일을 받습니다.</span>
+              </span>
+            </label>
+            <label class="check-item" style="align-items:flex-start">
+              <input type="checkbox" style="margin-top:2px" />
+              <span class="check-box" style="margin-top:1px">
+                <svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg>
+              </span>
+              <span>
+                <span class="check-label" style="display:block">SMS 수신 동의 <span style="font-size:10px;color:var(--color-text-muted)">(선택)</span></span>
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:2px;display:block">주문 및 배송 관련 문자를 받습니다.</span>
+              </span>
+            </label>
+          </div>
+          <div style="height:1px;background:var(--color-border);margin:var(--space-5) 0"></div>
+          <div class="check-group">
+            <label class="check-item" style="align-items:flex-start">
+              <input type="radio" name="plan" checked style="margin-top:2px" />
+              <span class="radio-box" style="margin-top:2px"><span class="radio-dot"></span></span>
+              <span>
+                <span class="check-label" style="display:block">Standard 플랜</span>
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:2px;display:block">월 9,900원 · 최대 3명</span>
+              </span>
+            </label>
+            <label class="check-item" style="align-items:flex-start">
+              <input type="radio" name="plan" style="margin-top:2px" />
+              <span class="radio-box" style="margin-top:2px"><span class="radio-dot"></span></span>
+              <span>
+                <span class="check-label" style="display:block">Pro 플랜</span>
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-top:2px;display:block">월 29,900원 · 무제한</span>
+              </span>
+            </label>
+          </div>
+        </div></div>
+
+        <!-- 카드형 -->
+        <div class="preview"><div class="preview-label">카드형 (선택 시 테두리 강조)</div><div class="preview-body gray">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--space-3)">
+            <label class="card-check">
+              <input type="checkbox" checked />
+              <div class="card-check-inner">
+                <div style="font-size:20px;margin-bottom:var(--space-2)">🍎</div>
+                <span class="card-check-label">iOS / APNs</span>
+                <span class="card-check-desc">Apple 푸시 알림</span>
+                <span class="card-check-indicator">
+                  <span class="check-box" style="width:16px;height:16px">
+                    <svg width="9" height="9" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg>
+                  </span>
+                </span>
+              </div>
+            </label>
+            <label class="card-check">
+              <input type="checkbox" />
+              <div class="card-check-inner">
+                <div style="font-size:20px;margin-bottom:var(--space-2)">🤖</div>
+                <span class="card-check-label">Android / FCM</span>
+                <span class="card-check-desc">Firebase 클라우드 메시지</span>
+                <span class="card-check-indicator">
+                  <span class="check-box" style="width:16px;height:16px">
+                    <svg width="9" height="9" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg>
+                  </span>
+                </span>
+              </div>
+            </label>
+            <label class="card-check">
+              <input type="checkbox" disabled />
+              <div class="card-check-inner" style="opacity:.4">
+                <div style="font-size:20px;margin-bottom:var(--space-2)">🌐</div>
+                <span class="card-check-label">Web Push</span>
+                <span class="card-check-desc">브라우저 웹 푸시</span>
+                <span class="card-check-indicator">
+                  <span class="check-box" style="width:16px;height:16px">
+                    <svg width="9" height="9" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg>
+                  </span>
+                </span>
+              </div>
+            </label>
+          </div>
+          <div style="height:1px;background:var(--color-border);margin:var(--space-5) 0"></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--space-3)">
+            <label class="card-radio">
+              <input type="radio" name="cr1" checked />
+              <div class="card-check-inner">
+                <span class="card-check-label">월간 결제</span>
+                <span style="font-size:var(--font-size-lg);font-weight:var(--font-weight-bold);color:var(--color-text-primary);margin:var(--space-1) 0;display:block">₩9,900</span>
+                <span class="card-check-desc">매월 자동 결제</span>
+                <span class="card-check-indicator">
+                  <span class="radio-box" style="width:16px;height:16px"><span class="radio-dot" style="width:5px;height:5px"></span></span>
+                </span>
+              </div>
+            </label>
+            <label class="card-radio">
+              <input type="radio" name="cr1" />
+              <div class="card-check-inner">
+                <span class="card-check-label">연간 결제</span>
+                <span style="font-size:var(--font-size-lg);font-weight:var(--font-weight-bold);color:var(--color-text-primary);margin:var(--space-1) 0;display:block">₩99,000</span>
+                <span class="card-check-desc">2개월 무료</span>
+                <span class="card-check-indicator">
+                  <span class="radio-box" style="width:16px;height:16px"><span class="radio-dot" style="width:5px;height:5px"></span></span>
+                </span>
+              </div>
+            </label>
+          </div>
+        </div></div>
+
+        <!-- 수평 배열 -->
+        <div class="preview"><div class="preview-label">수평 배열</div><div class="preview-body">
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">Checkbox 수평</p>
+              <div class="check-group-horizontal">
+                <label class="check-item">
+                  <input type="checkbox" checked />
+                  <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+                  <span class="check-label">iOS</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" checked />
+                  <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+                  <span class="check-label">Android</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" />
+                  <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10"><path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/></svg></span>
+                  <span class="check-label">Web</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">Radio 수평</p>
+              <div class="check-group-horizontal">
+                <label class="check-item">
+                  <input type="radio" name="rh1" checked />
+                  <span class="radio-box"><span class="radio-dot"></span></span>
+                  <span class="check-label">전체</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="rh1" />
+                  <span class="radio-box"><span class="radio-dot"></span></span>
+                  <span class="check-label">성공</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="rh1" />
+                  <span class="radio-box"><span class="radio-dot"></span></span>
+                  <span class="check-label">실패</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="rh1" />
+                  <span class="radio-box"><span class="radio-dot"></span></span>
+                  <span class="check-label">대기</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div></div>
+
+      </section>
+
+      <!-- TOGGLE -->
+      <section class="gl-section" id="s-toggle">
+        <div class="gl-section-header">
+          <p class="gl-section-label">Component</p>
+          <h2 class="gl-section-title">Toggle / Switch</h2>
+        </div>
+        <div class="preview"><div class="preview-label">States</div><div class="preview-body">
+          <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" checked /><div class="toggle-track"></div></label><span class="toggle-label">활성화 (On)</span></div>
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" /><div class="toggle-track"></div></label><span class="toggle-label">비활성화 (Off)</span></div>
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" disabled /><div class="toggle-track"></div></label><span class="toggle-label" style="color:var(--color-text-disabled)">비활성 (Disabled)</span></div>
+          </div>
+        </div></div>
+
+        <div class="preview"><div class="preview-label">Button Toggle</div><div class="preview-body">
+          <div style="display:flex;flex-direction:column;gap:var(--space-6)">
+
+            <!-- 단일 버튼 토글 -->
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">단일 버튼</p>
+              <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+                <button class="btn-toggle active" onclick="toggleBtnClick(this)">
+                  <span class="btn-toggle-dot"></span>알림 활성화
+                </button>
+                <button class="btn-toggle" onclick="toggleBtnClick(this)">
+                  <span class="btn-toggle-dot"></span>다크 모드
+                </button>
+                <button class="btn-toggle active" disabled>
+                  <span class="btn-toggle-dot"></span>비활성 (On)
+                </button>
+                <button class="btn-toggle" disabled>
+                  <span class="btn-toggle-dot"></span>비활성 (Off)
+                </button>
+              </div>
+            </div>
+
+            <!-- 그룹 버튼 토글 (단일 선택) -->
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">그룹 (단일 선택)</p>
+              <div class="btn-toggle-group" id="toggleGroup1">
+                <div class="btn-toggle-indicator" id="toggleGroup1-indicator"></div>
+                <button class="btn-toggle-seg active" onclick="toggleSegClick(this, 'toggleGroup1')">전체</button>
+                <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">iOS</button>
+                <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">Android</button>
+                <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">Web</button>
+              </div>
+            </div>
+
+            <!-- 그룹 버튼 토글 (다중 선택) -->
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">그룹 (다중 선택)</p>
+              <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+                <button class="btn-toggle active" onclick="toggleBtnClick(this)">푸시 알림</button>
+                <button class="btn-toggle active" onclick="toggleBtnClick(this)">이메일</button>
+                <button class="btn-toggle" onclick="toggleBtnClick(this)">SMS</button>
+                <button class="btn-toggle" onclick="toggleBtnClick(this)">카카오톡</button>
+              </div>
+            </div>
+
+          </div>
+        </div></div>
+
+        <pre class="code-block">&lt;!-- 단일 버튼 토글 --&gt;
+&lt;button class="btn-toggle active" onclick="toggleBtnClick(this)"&gt;
+  &lt;span class="btn-toggle-dot"&gt;&lt;/span&gt;알림 활성화
+&lt;/button&gt;
+
+&lt;!-- 세그먼트 그룹 (단일 선택) --&gt;
+&lt;div class="btn-toggle-group" id="group"&gt;
+  &lt;button class="btn-toggle-seg active" onclick="toggleSegClick(this, 'group')"&gt;전체&lt;/button&gt;
+  &lt;button class="btn-toggle-seg" onclick="toggleSegClick(this, 'group')"&gt;iOS&lt;/button&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- BADGE -->
+      <section class="gl-section" id="s-badge">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Badge</h2></div>
+        <div class="preview"><div class="preview-label">Variant</div><div class="preview-body"><div class="comp-row"><span class="badge badge-accent">Accent</span><span class="badge badge-success">Success</span><span class="badge badge-warning">Warning</span><span class="badge badge-danger">Danger</span><span class="badge badge-neutral">Neutral</span></div></div></div>
+      </section>
+
+      <!-- CARD -->
+      <section class="gl-section" id="s-card">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Card</h2></div>
+        <div class="preview"><div class="preview-label">Pattern</div><div class="preview-body gray">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--space-4)">
+            <div class="card">
+              <p class="card-title">기본 카드</p>
+              <p class="card-desc">카드 내부 설명 텍스트입니다. 일반적인 콘텐츠 컨테이너로 사용됩니다.</p>
+              <div class="card-footer"><button class="btn btn-sm btn-ghost">취소</button><button class="btn btn-sm btn-primary">확인</button></div>
+            </div>
+            <div class="card">
+              <span class="badge badge-success" style="margin-bottom:var(--space-2);align-self:flex-start">Active</span>
+              <p class="card-title">뱃지 포함 카드</p>
+              <p class="card-desc">뱃지는 타이틀 위에 배치하고 좌측 정렬을 맞춥니다.</p>
+              <div class="card-footer"><button class="btn btn-sm btn-ghost">취소</button><button class="btn btn-sm btn-primary">확인</button></div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--space-4);margin-top:var(--space-4)">
+            <!-- 기본 이미지 카드 -->
+            <div class="card card-image">
+              <div class="card-img-wrap">
+                <div class="card-img-placeholder">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-title">이미지 카드</p>
+                <p class="card-desc">상단 이미지가 16:9 비율로 카드 너비에 꽉 채워집니다.</p>
+                <div class="card-footer"><button class="btn btn-sm btn-ghost">취소</button><button class="btn btn-sm btn-primary">확인</button></div>
+              </div>
+            </div>
+            <!-- 뱃지 포함 이미지 카드 -->
+            <div class="card card-image">
+              <div class="card-img-wrap">
+                <div class="card-img-placeholder">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="card-img-badge badge badge-accent">New</span>
+              </div>
+              <div class="card-body">
+                <p class="card-title">이미지 + 뱃지 카드</p>
+                <p class="card-desc">이미지 위에 뱃지를 오버레이로 올릴 수도 있습니다.</p>
+                <div class="card-footer"><button class="btn btn-sm btn-ghost">취소</button><button class="btn btn-sm btn-primary">확인</button></div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- TABS -->
+      <section class="gl-section" id="s-tabs">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Tabs</h2></div>
+
+        <!-- Underline + 슬라이딩 -->
+        <div class="preview"><div class="preview-label">Underline — 슬라이딩 애니메이션</div><div class="preview-body">
+          <div class="tabs tabs-sliding" id="tabs1">
+            <div class="tabs-list" style="position:relative">
+              <div class="tab-sliding-indicator" id="tabs1-indicator"></div>
+              <button class="tab-item active" onclick="switchTabSlide('tabs1',0)">개요</button>
+              <button class="tab-item" onclick="switchTabSlide('tabs1',1)">상세 정보</button>
+              <button class="tab-item" onclick="switchTabSlide('tabs1',2)">히스토리</button>
+              <button class="tab-item" onclick="switchTabSlide('tabs1',3)">설정</button>
+            </div>
+            <div class="tab-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">상세 정보 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">설정 탭 콘텐츠입니다.</p></div>
+          </div>
+        </div></div>
+
+        <!-- 아이콘 + 텍스트 -->
+        <div class="preview"><div class="preview-label">아이콘 + 텍스트</div><div class="preview-body">
+          <div class="tabs tabs-sliding" id="tabs2">
+            <div class="tabs-list" style="position:relative">
+              <div class="tab-sliding-indicator" id="tabs2-indicator"></div>
+              <button class="tab-item tab-icon active" onclick="switchTabSlide('tabs2',0)">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/></svg>
+                개요
+              </button>
+              <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',1)">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                히스토리
+              </button>
+              <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',2)">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2a6 6 0 100 12A6 6 0 008 2z" stroke="currentColor" stroke-width="1.4"/><path d="M8 6v2l1.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                통계
+              </button>
+              <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',3)">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                계정
+              </button>
+            </div>
+            <div class="tab-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">통계 탭 콘텐츠입니다.</p></div>
+            <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">계정 탭 콘텐츠입니다.</p></div>
+          </div>
+        </div></div>
+
+        <!-- 수직 탭 -->
+        <div class="preview"><div class="preview-label">수직 탭 (Vertical)</div><div class="preview-body no-pad">
+          <div class="tabs-vertical" id="tabs3">
+            <div class="tabs-vertical-list">
+              <div class="tab-v-indicator" id="tabs3-indicator"></div>
+              <button class="tab-v-item active" onclick="switchTabV('tabs3',0)">개요</button>
+              <button class="tab-v-item" onclick="switchTabV('tabs3',1)">상세 정보</button>
+              <button class="tab-v-item" onclick="switchTabV('tabs3',2)">히스토리</button>
+              <button class="tab-v-item" onclick="switchTabV('tabs3',3)">설정</button>
+            </div>
+            <div class="tabs-vertical-content">
+              <div class="tab-v-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+              <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">상세 정보 탭 콘텐츠입니다.</p></div>
+              <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+              <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">설정 탭 콘텐츠입니다.</p></div>
+            </div>
+          </div>
+        </div></div>
+
+        <pre class="code-block">&lt;!-- Underline 슬라이딩 --&gt;
+&lt;div class="tabs tabs-sliding"&gt;
+  &lt;div class="tabs-list" style="position:relative"&gt;
+    &lt;div class="tab-sliding-indicator" id="tabs-indicator"&gt;&lt;/div&gt;
+    &lt;button class="tab-item active" onclick="switchTabSlide('tabs',0)"&gt;탭 1&lt;/button&gt;
+    &lt;button class="tab-item" onclick="switchTabSlide('tabs',1)"&gt;탭 2&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-panel active"&gt;콘텐츠 1&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 아이콘 + 텍스트 --&gt;
+&lt;button class="tab-item tab-icon active"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;개요
+&lt;/button&gt;
+
+&lt;!-- 수직 탭 --&gt;
+&lt;div class="tabs-vertical"&gt;
+  &lt;div class="tabs-vertical-list"&gt;
+    &lt;button class="tab-v-item active"&gt;탭 1&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tabs-vertical-content"&gt;
+    &lt;div class="tab-v-panel active"&gt;콘텐츠 1&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- TABLE -->
+      <section class="gl-section" id="s-table">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Table</h2></div>
+
+        <!-- 행 선택 + 정렬 + 페이지네이션 -->
+        <div class="preview"><div class="preview-label">정렬 1 · 헤더 클릭 오름/내림차순 · 행 선택 · 페이지네이션</div><div class="preview-body no-pad">
+
+          <!-- 툴바 -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border);background:var(--color-bg-secondary);min-height:44px;">
+            <span id="tbl-info" style="font-size:var(--font-size-xs);color:var(--color-text-muted)">전체 8개</span>
+            <div id="tbl-bulk" style="display:none;gap:var(--space-2);align-items:center">
+              <span id="tbl-selected-count" style="font-size:var(--font-size-xs);color:var(--color-accent);font-weight:var(--font-weight-medium)"></span>
+              <button class="btn btn-sm btn-secondary">내보내기</button>
+              <button class="btn btn-sm btn-danger">삭제</button>
+            </div>
+          </div>
+
+          <!-- 테이블 -->
+          <div class="table-wrap" style="border-radius:0;border:none;border-bottom:1px solid var(--color-border)">
+            <table id="mainTable">
+              <thead>
+                <tr>
+                  <th style="width:44px;text-align:center">
+                    <!-- 전체선택 체크박스 — 기존 check-item 컴포넌트 사용 -->
+                    <label class="check-item" style="justify-content:center;margin:0">
+                      <input type="checkbox" id="tbl-all" onchange="tblSelectAll(this)" />
+                      <span class="check-box" style="width:15px;height:15px">
+                        <svg width="9" height="9" viewBox="0 0 10 10">
+                          <path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/>
+                          <line class="indeterminate-path" x1="2" y1="5" x2="8" y2="5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    </label>
+                  </th>
+                  <th class="th-sort" onclick="tblSort('name')">서비스명 <span id="si-name" class="sort-icon">↕</span></th>
+                  <th class="th-sort" onclick="tblSort('platform')">플랫폼 <span id="si-platform" class="sort-icon">↕</span></th>
+                  <th>상태</th>
+                  <th class="th-sort" onclick="tblSort('send')">전송량 <span id="si-send" class="sort-icon">↕</span></th>
+                  <th class="th-sort" onclick="tblSort('rate')">성공률 <span id="si-rate" class="sort-icon">↕</span></th>
+                </tr>
+              </thead>
+              <tbody id="tbl-body"></tbody>
+            </table>
+          </div>
+
+          <!-- 페이지네이션 — 기존 pagination 컴포넌트 사용 -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) var(--space-5)">
+            <span id="tbl-page-info" style="font-size:var(--font-size-xs);color:var(--color-text-muted)"></span>
+            <nav class="pagination" id="tbl-pagination"></nav>
+          </div>
+
+        </div></div>
+
+        <!-- 정렬 드롭다운 -->
+        <div class="preview"><div class="preview-label">정렬 2 · 타이틀 선택 드롭다운</div><div class="preview-body no-pad">
+          <div class="table-wrap" style="border-radius:0;border:none">
+            <table id="dropdownSortTable">
+              <thead>
+                <tr>
+                  <th>
+                    <span class="table-sort-dropdown dropdown">
+                      <button class="table-title-menu" id="tbl-dd-sort-name-btn" onclick="toggleDropdown('tbl-dd-sort-name')" aria-expanded="false">
+                        서비스명
+                        <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </button>
+                      <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-name">
+                        <button class="dropdown-item" data-sort-col="name" data-sort-dir="asc" onclick="tblDropdownSort('name','asc')">오름차순 <span>↑</span></button>
+                        <button class="dropdown-item" data-sort-col="name" data-sort-dir="desc" onclick="tblDropdownSort('name','desc')">내림차순 <span>↓</span></button>
+                        <button class="dropdown-item" data-sort-col="name" data-sort-dir="none" onclick="tblDropdownSort('name','none')">정렬 해제 <span>↕</span></button>
+                      </div>
+                    </span>
+                  </th>
+                  <th>
+                    <span class="table-sort-dropdown dropdown">
+                      <button class="table-title-menu" id="tbl-dd-sort-platform-btn" onclick="toggleDropdown('tbl-dd-sort-platform')" aria-expanded="false">
+                        플랫폼
+                        <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </button>
+                      <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-platform">
+                        <button class="dropdown-item" data-sort-col="platform" data-sort-dir="asc" onclick="tblDropdownSort('platform','asc')">오름차순 <span>↑</span></button>
+                        <button class="dropdown-item" data-sort-col="platform" data-sort-dir="desc" onclick="tblDropdownSort('platform','desc')">내림차순 <span>↓</span></button>
+                        <button class="dropdown-item" data-sort-col="platform" data-sort-dir="none" onclick="tblDropdownSort('platform','none')">정렬 해제 <span>↕</span></button>
+                      </div>
+                    </span>
+                  </th>
+                  <th>
+                    <span class="table-sort-dropdown dropdown">
+                      <button class="table-title-menu" id="tbl-dd-sort-status-btn" onclick="toggleDropdown('tbl-dd-sort-status')" aria-expanded="false">
+                        상태
+                        <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </button>
+                      <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-status">
+                        <button class="dropdown-item" data-sort-col="status" data-sort-dir="asc" onclick="tblDropdownSort('status','asc')">오름차순 <span>↑</span></button>
+                        <button class="dropdown-item" data-sort-col="status" data-sort-dir="desc" onclick="tblDropdownSort('status','desc')">내림차순 <span>↓</span></button>
+                        <button class="dropdown-item" data-sort-col="status" data-sort-dir="none" onclick="tblDropdownSort('status','none')">정렬 해제 <span>↕</span></button>
+                      </div>
+                    </span>
+                  </th>
+                  <th>
+                    <span class="table-sort-dropdown dropdown">
+                      <button class="table-title-menu" id="tbl-dd-sort-send-btn" onclick="toggleDropdown('tbl-dd-sort-send')" aria-expanded="false">
+                        전송량
+                        <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </button>
+                      <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-send">
+                        <button class="dropdown-item" data-sort-col="send" data-sort-dir="asc" onclick="tblDropdownSort('send','asc')">오름차순 <span>↑</span></button>
+                        <button class="dropdown-item" data-sort-col="send" data-sort-dir="desc" onclick="tblDropdownSort('send','desc')">내림차순 <span>↓</span></button>
+                        <button class="dropdown-item" data-sort-col="send" data-sort-dir="none" onclick="tblDropdownSort('send','none')">정렬 해제 <span>↕</span></button>
+                      </div>
+                    </span>
+                  </th>
+                  <th>
+                    <span class="table-sort-dropdown dropdown">
+                      <button class="table-title-menu" id="tbl-dd-sort-rate-btn" onclick="toggleDropdown('tbl-dd-sort-rate')" aria-expanded="false">
+                        성공률
+                        <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      </button>
+                      <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-rate">
+                        <button class="dropdown-item" data-sort-col="rate" data-sort-dir="asc" onclick="tblDropdownSort('rate','asc')">오름차순 <span>↑</span></button>
+                        <button class="dropdown-item" data-sort-col="rate" data-sort-dir="desc" onclick="tblDropdownSort('rate','desc')">내림차순 <span>↓</span></button>
+                        <button class="dropdown-item" data-sort-col="rate" data-sort-dir="none" onclick="tblDropdownSort('rate','none')">정렬 해제 <span>↕</span></button>
+                      </div>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tbl-dropdown-body"></tbody>
+            </table>
+          </div>
+        </div></div>
+
+        <!-- Empty State 연동 -->
+        <div class="preview"><div class="preview-label">Empty State 연동</div><div class="preview-body no-pad">
+          <div class="table-wrap" style="border-radius:0;border:none">
+            <table>
+              <thead><tr><th style="width:44px"></th><th>서비스명</th><th>플랫폼</th><th>상태</th><th>전송량</th></tr></thead>
+              <tbody>
+                <tr><td colspan="5" style="padding:0;border:none">
+                  <!-- Empty State 컴포넌트 그대로 사용 -->
+                  <div class="empty-state" style="padding:var(--space-10) var(--space-6)">
+                    <div class="empty-icon">📋</div>
+                    <p class="empty-title">데이터가 없습니다</p>
+                    <p class="empty-desc">등록된 서비스가 없습니다. 새 서비스를 추가하면 여기에 표시됩니다.</p>
+                    <button class="btn btn-md btn-primary">+ 서비스 추가</button>
+                  </div>
+                </td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div></div>
+
+      </section>
+
+      <!-- DROPDOWN -->
+      <section class="gl-section" id="s-dropdown">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Dropdown</h2></div>
+        <div class="preview"><div class="preview-label">Live Preview — 버튼을 클릭하세요</div><div class="preview-body" style="min-height:220px">
+          <div class="comp-row">
+            <div class="dropdown">
+              <button class="btn btn-md btn-secondary" onclick="toggleDropdown('dd1')">옵션 선택 ▾</button>
+              <div class="dropdown-menu" id="dd1">
+                <div class="dropdown-section-label">계정</div>
+                <button class="dropdown-item">프로필 편집</button>
+                <button class="dropdown-item">설정</button>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-section-label">서비스</div>
+                <button class="dropdown-item">새 서비스 추가</button>
+                <button class="dropdown-item">내보내기</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item danger">삭제</button>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-md btn-primary" onclick="toggleDropdown('dd2')">액션 ▾</button>
+              <div class="dropdown-menu" id="dd2">
+                <button class="dropdown-item">편집</button>
+                <button class="dropdown-item">복제</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item danger">삭제</button>
+              </div>
+            </div>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-md btn-secondary" onclick="toggleDropdown('dd')"&gt;메뉴 ▾&lt;/button&gt;
+  &lt;div class="dropdown-menu" id="dd"&gt;
+    &lt;button class="dropdown-item"&gt;항목 1&lt;/button&gt;
+    &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+    &lt;button class="dropdown-item danger"&gt;삭제&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- MODAL -->
+      <section class="gl-section" id="s-modal">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Modal / Dialog</h2></div>
+        <div class="preview"><div class="preview-label">Live Preview — 버튼을 클릭하세요</div><div class="preview-body">
+          <div class="comp-row">
+            <button class="btn btn-md btn-primary" onclick="openModal('modal1')">기본 모달</button>
+            <button class="btn btn-md btn-danger" onclick="openModal('modal2')">삭제 확인</button>
+            <button class="btn btn-md btn-secondary" onclick="openModal('modal-scroll')">스크롤 모달</button>
+            <button class="btn btn-md btn-secondary" onclick="openSheet()">하단 시트</button>
+            <button class="btn btn-md btn-secondary" onclick="openDrawer()">사이드 드로어</button>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;!-- 기본 모달 --&gt;
+&lt;div class="modal-overlay" id="modal"&gt;
+  &lt;div class="modal"&gt;
+    &lt;div class="modal-header"&gt;...&lt;/div&gt;
+    &lt;div class="modal-body"&gt;...&lt;/div&gt;
+    &lt;div class="modal-footer"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 스크롤 모달 (modal-body에 scroll 클래스) --&gt;
+&lt;div class="modal"&gt;
+  &lt;div class="modal-body modal-body-scroll"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 하단 시트 --&gt;
+&lt;div class="sheet-overlay" id="sheet"&gt;
+  &lt;div class="sheet"&gt;
+    &lt;div class="sheet-handle"&gt;&lt;/div&gt;
+    &lt;div class="sheet-header"&gt;...&lt;/div&gt;
+    &lt;div class="sheet-body"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 사이드 드로어 --&gt;
+&lt;div class="drawer-overlay" id="drawer"&gt;
+  &lt;div class="drawer"&gt;
+    &lt;div class="drawer-header"&gt;...&lt;/div&gt;
+    &lt;div class="drawer-body"&gt;...&lt;/div&gt;
+    &lt;div class="drawer-footer"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- TOAST -->
+      <section class="gl-section" id="s-toast">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Toast / Snackbar</h2></div>
+        <div class="preview"><div class="preview-label">Live Preview — 버튼을 클릭하세요</div><div class="preview-body">
+          <div class="comp-row">
+            <button class="btn btn-sm btn-secondary" onclick="showToast('success','저장 완료','변경사항이 저장되었습니다.')">Success</button>
+            <button class="btn btn-sm btn-secondary" onclick="showToast('warning','주의','일부 항목을 확인하세요.')">Warning</button>
+            <button class="btn btn-sm btn-secondary" onclick="showToast('danger','오류','저장에 실패했습니다.')">Danger</button>
+            <button class="btn btn-sm btn-secondary" onclick="showToast('info','안내','새 업데이트가 있습니다.')">Info</button>
+          </div>
+        </div></div>
+        <div class="preview"><div class="preview-label">Preview (정적)</div><div class="preview-body">
+          <div class="toast-demo-list">
+            <div class="toast"><div class="toast-icon success">✓</div><div class="toast-content"><div class="toast-title">저장 완료</div><div class="toast-msg">변경사항이 저장되었습니다.</div></div><button class="toast-close" aria-label="토스트 닫기">✕</button></div>
+            <div class="toast"><div class="toast-icon warning">!</div><div class="toast-content"><div class="toast-title">주의</div><div class="toast-msg">일부 항목을 확인하세요.</div></div><button class="toast-close" aria-label="토스트 닫기">✕</button></div>
+            <div class="toast"><div class="toast-icon danger">✕</div><div class="toast-content"><div class="toast-title">오류</div><div class="toast-msg">저장에 실패했습니다.</div></div><button class="toast-close" aria-label="토스트 닫기">✕</button></div>
+            <div class="toast"><div class="toast-icon info">i</div><div class="toast-content"><div class="toast-title">안내</div><div class="toast-msg">새 업데이트가 있습니다.</div></div><button class="toast-close" aria-label="토스트 닫기">✕</button></div>
+          </div>
+        </div></div>
+        <pre class="code-block">/* Toast는 body에 .toast-container 추가 후 동적 생성 */
+function showToast(type, title, msg) {
+  const toast = document.createElement('div');
+  toast.className = 'toast toast-entering';
+  toast.innerHTML = `
+    &lt;div class="toast-icon ${type}"&gt;...&lt;/div&gt;
+    &lt;div class="toast-content"&gt;
+      &lt;div class="toast-title"&gt;${title}&lt;/div&gt;
+      &lt;div class="toast-msg"&gt;${msg}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="toast-close" onclick="removeToast(this)" aria-label="토스트 닫기"&gt;✕&lt;/button&gt;
+  `;
+  document.querySelector('.toast-container').appendChild(toast);
+  setTimeout(() => removeToast(toast.querySelector('.toast-close')), 4000);
+}</pre>
+      </section>
+
+      <!-- TOOLTIP -->
+      <section class="gl-section" id="s-tooltip">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Tooltip</h2></div>
+        <div class="preview"><div class="preview-label">Hover 해보세요</div><div class="preview-body" style="padding:var(--space-10) var(--space-6)">
+          <div class="comp-row" style="justify-content:center">
+            <div class="tooltip-wrap"><button class="btn btn-md btn-secondary">삭제</button><div class="tooltip-box">이 항목을 영구 삭제합니다</div></div>
+            <div class="tooltip-wrap"><button class="btn btn-md btn-primary">저장</button><div class="tooltip-box">변경사항을 저장합니다</div></div>
+            <div class="tooltip-wrap"><span class="badge badge-accent" style="cursor:help">Pro</span><div class="tooltip-box">Pro 플랜 전용 기능입니다</div></div>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;div class="tooltip-wrap"&gt;
+  &lt;button class="btn btn-md btn-secondary"&gt;버튼&lt;/button&gt;
+  &lt;div class="tooltip-box"&gt;툴팁 메시지&lt;/div&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- BREADCRUMB -->
+      <section class="gl-section" id="s-breadcrumb">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Breadcrumb</h2></div>
+        <div class="preview"><div class="preview-label">Default</div><div class="preview-body">
+          <div class="comp-col">
+            <nav class="breadcrumb"><a class="breadcrumb-item">홈</a><span class="breadcrumb-sep">/</span><a class="breadcrumb-item">서비스</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item current">SPMS iOS</span></nav>
+            <nav class="breadcrumb"><a class="breadcrumb-item">Console</a><span class="breadcrumb-sep">›</span><a class="breadcrumb-item">설정</a><span class="breadcrumb-sep">›</span><a class="breadcrumb-item">웹훅</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-item current">새 웹훅 추가</span></nav>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;nav class="breadcrumb"&gt;
+  &lt;a class="breadcrumb-item" href="/"&gt;홈&lt;/a&gt;
+  &lt;span class="breadcrumb-sep"&gt;/&lt;/span&gt;
+  &lt;a class="breadcrumb-item" href="/services"&gt;서비스&lt;/a&gt;
+  &lt;span class="breadcrumb-sep"&gt;/&lt;/span&gt;
+  &lt;span class="breadcrumb-item current"&gt;SPMS iOS&lt;/span&gt;
+&lt;/nav&gt;</pre>
+      </section>
+
+      <!-- PAGINATION -->
+      <section class="gl-section" id="s-pagination">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Pagination</h2></div>
+        <div class="preview"><div class="preview-label">Live Demo — 버튼을 클릭하세요</div><div class="preview-body">
+          <div class="comp-col" style="gap:var(--space-6)">
+            <!-- 페이지 적을 때 -->
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">페이지 수 적을 때 (5개 이하)</p>
+              <nav class="pagination" id="demo-pg1"></nav>
+            </div>
+            <!-- 페이지 많을 때 -->
+            <div>
+              <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">페이지 수 많을 때 (100페이지)</p>
+              <nav class="pagination" id="demo-pg2"></nav>
+            </div>
+          </div>
+        </div></div>
+        <pre class="code-block">/* buildPagination(current, total, onClick) 함수로 생성 */
+
+/* 패턴: [처음 아이콘] [이전 아이콘] [윈도우 5개] [다음 아이콘] [마지막 아이콘] */
+/* - 1페이지면 처음/이전 비활성               */
+/* - 첫 윈도우 밖이면 처음 아이콘으로 첫 페이지로  */
+/* - 윈도우: 현재 페이지 중심 앞뒤 2개    */
+/* - 마지막 근처면 ... 없이 끝까지 표시   */</pre>
+      </section>
+
+      <!-- SKELETON -->
+      <section class="gl-section" id="s-skeleton">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Skeleton / Loading</h2></div>
+        <div class="preview"><div class="preview-label">Card Skeleton</div><div class="preview-body gray">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--space-4)">
+            <div class="skeleton-card">
+              <div class="skeleton skeleton-thumb"></div>
+              <div class="skeleton skeleton-title" style="width:70%"></div>
+              <div class="skeleton skeleton-text" style="width:100%"></div>
+              <div class="skeleton skeleton-text" style="width:85%"></div>
+              <div class="skeleton skeleton-text" style="width:60%"></div>
+            </div>
+            <div class="skeleton-card">
+              <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4)">
+                <div class="skeleton skeleton-avatar"></div>
+                <div style="flex:1"><div class="skeleton skeleton-text" style="width:60%;margin-bottom:var(--space-2)"></div><div class="skeleton skeleton-text" style="width:40%;margin-bottom:0"></div></div>
+              </div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text" style="width:80%"></div>
+              <div class="skeleton skeleton-text" style="width:55%"></div>
+            </div>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;!-- 텍스트 --&gt;
+&lt;div class="skeleton skeleton-text" style="width:70%"&gt;&lt;/div&gt;
+
+&lt;!-- 제목 --&gt;
+&lt;div class="skeleton skeleton-title"&gt;&lt;/div&gt;
+
+&lt;!-- 아바타 --&gt;
+&lt;div class="skeleton skeleton-avatar"&gt;&lt;/div&gt;
+
+&lt;!-- 썸네일 --&gt;
+&lt;div class="skeleton skeleton-thumb"&gt;&lt;/div&gt;</pre>
+      </section>
+
+      <!-- EMPTY STATE -->
+      <section class="gl-section" id="s-empty">
+        <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Empty State</h2></div>
+        <div class="preview"><div class="preview-label">Default</div><div class="preview-body gray">
+          <div class="empty-state">
+            <div class="empty-icon">📭</div>
+            <p class="empty-title">데이터가 없습니다</p>
+            <p class="empty-desc">아직 등록된 서비스가 없습니다. 새 서비스를 추가하면 여기에 표시됩니다.</p>
+            <button class="btn btn-md btn-primary">+ 서비스 추가</button>
+          </div>
+        </div></div>
+        <div class="preview"><div class="preview-label">Search Empty</div><div class="preview-body gray">
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <p class="empty-title">검색 결과가 없습니다</p>
+            <p class="empty-desc">"SPMS"에 대한 검색 결과를 찾을 수 없습니다. 다른 키워드로 검색해 보세요.</p>
+            <button class="btn btn-md btn-secondary">검색 초기화</button>
+          </div>
+        </div></div>
+        <pre class="code-block">&lt;div class="empty-state"&gt;
+  &lt;div class="empty-icon"&gt;📭&lt;/div&gt;
+  &lt;p class="empty-title"&gt;데이터가 없습니다&lt;/p&gt;
+  &lt;p class="empty-desc"&gt;설명 텍스트입니다.&lt;/p&gt;
+  &lt;button class="btn btn-md btn-primary"&gt;액션 버튼&lt;/button&gt;
+&lt;/div&gt;</pre>
+      </section>
+
+      <!-- NAV: TOPBAR -->
+      <section class="gl-section" id="s-topbar">
+        <div class="gl-section-header"><p class="gl-section-label">Navigation</p><h2 class="gl-section-title">Topbar</h2><p class="gl-section-desc">블로그, 마케팅 페이지 등 콘텐츠 중심 서비스에 적합. 메뉴 5개 이하 권장.</p></div>
+        <div class="preview"><div class="preview-label">Live Preview</div><div class="preview-body no-pad">
+          <div class="demo-topbar-wrap">
+            <div class="demo-topbar">
+              <span class="demo-topbar-logo">Brand</span>
+              <nav class="demo-topbar-nav"><a class="demo-topbar-link active">홈</a><a class="demo-topbar-link">서비스</a><a class="demo-topbar-link">블로그</a><a class="demo-topbar-link">소개</a></nav>
+              <div class="demo-topbar-actions"><button class="btn btn-sm btn-secondary">로그인</button><button class="btn btn-sm btn-primary">시작하기</button></div>
+            </div>
+            <div class="demo-placeholder"><p>Page Content Area</p></div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- NAV: SIDEBAR -->
+      <section class="gl-section" id="s-sidebar">
+        <div class="gl-section-header"><p class="gl-section-label">Navigation</p><h2 class="gl-section-title">Sidebar</h2><p class="gl-section-desc">대시보드·어드민 서비스에 적합. 메뉴 그룹핑이 필요할 때 사용.</p></div>
+        <div class="preview"><div class="preview-label">Live Preview</div><div class="preview-body no-pad">
+          <div class="demo-sidebar-wrap">
+            <aside class="demo-sidebar">
+              <div class="demo-sidebar-logo">Brand</div>
+              <div class="demo-sidebar-group">
+                <div class="demo-sidebar-group-label">General</div>
+                <a class="demo-sidebar-link active"><div class="demo-sidebar-icon"></div>대시보드</a>
+                <a class="demo-sidebar-link"><div class="demo-sidebar-icon"></div>메시지</a>
+                <a class="demo-sidebar-link"><div class="demo-sidebar-icon"></div>통계</a>
+              </div>
+              <div class="demo-sidebar-group">
+                <div class="demo-sidebar-group-label">Settings</div>
+                <a class="demo-sidebar-link"><div class="demo-sidebar-icon"></div>서비스 관리</a>
+                <a class="demo-sidebar-link"><div class="demo-sidebar-icon"></div>환경설정</a>
+              </div>
+              <div class="demo-sidebar-bottom">
+                <div class="demo-sidebar-user"><div class="demo-avatar">S</div><div class="demo-sidebar-user-info"><p>Sean</p><span>Admin</span></div></div>
+              </div>
+            </aside>
+            <div class="demo-main">
+              <div class="demo-main-header"><div><div class="demo-main-title">대시보드</div><div class="demo-main-sub">오늘의 현황</div></div><button class="btn btn-sm btn-primary">+ 추가</button></div>
+              <div class="demo-card-grid">
+                <div class="demo-card-mini"><div class="demo-card-mini-label">전송량</div><div class="demo-card-mini-value">12,450</div></div>
+                <div class="demo-card-mini"><div class="demo-card-mini-label">성공률</div><div class="demo-card-mini-value">98.2%</div></div>
+                <div class="demo-card-mini"><div class="demo-card-mini-label">구독자</div><div class="demo-card-mini-value">3,820</div></div>
+              </div>
+              <div class="demo-table-s">
+                <div class="demo-table-row head"><span>서비스명</span><span>상태</span><span>전송</span></div>
+                <div class="demo-table-row"><span>SPMS iOS</span><span style="color:var(--color-success)">Active</span><span>4,201</span></div>
+                <div class="demo-table-row"><span>SPMS Android</span><span style="color:var(--color-success)">Active</span><span>8,249</span></div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- NAV: MIXED -->
+      <section class="gl-section" id="s-mixed">
+        <div class="gl-section-header"><p class="gl-section-label">Navigation</p><h2 class="gl-section-title">Topbar + Sidebar</h2><p class="gl-section-desc">여러 제품군을 가진 서비스에 적합. Topbar는 제품 전환, Sidebar는 제품 내 메뉴.</p></div>
+        <div class="preview"><div class="preview-label">Live Preview</div><div class="preview-body no-pad">
+          <div class="demo-mixed-wrap">
+            <div class="demo-mixed-topbar">
+              <span class="demo-mixed-logo">Brand</span>
+              <div class="demo-mixed-topnav"><a class="demo-mixed-toplink active">Console</a><a class="demo-mixed-toplink">Analytics</a><a class="demo-mixed-toplink">Docs</a></div>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:var(--space-3)"><span class="badge badge-accent">Pro</span><div class="demo-avatar" style="width:28px;height:28px;font-size:10px">S</div></div>
+            </div>
+            <div class="demo-mixed-body">
+              <div class="demo-mixed-sidebar">
+                <div class="demo-mixed-sidebar-label" style="margin-top:0">Console</div>
+                <a class="demo-mixed-link active">대시보드</a><a class="demo-mixed-link">서비스</a><a class="demo-mixed-link">템플릿</a><a class="demo-mixed-link">디바이스</a>
+                <div class="demo-mixed-sidebar-label">Settings</div>
+                <a class="demo-mixed-link">환경설정</a><a class="demo-mixed-link">웹훅</a>
+              </div>
+              <div class="demo-mixed-main">
+                <div><div style="font-size:var(--font-size-sm);font-weight:600;margin-bottom:4px">대시보드</div><div style="font-size:10px;color:var(--color-text-muted)">Console › 대시보드</div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2)">
+                  <div class="demo-card-mini"><div class="demo-card-mini-label">전송량</div><div class="demo-card-mini-value">12,450</div></div>
+                  <div class="demo-card-mini"><div class="demo-card-mini-label">성공률</div><div class="demo-card-mini-value">98.2%</div></div>
+                </div>
+                <div class="demo-table-s">
+                  <div class="demo-table-row head"><span>서비스</span><span>상태</span><span>전송</span></div>
+                  <div class="demo-table-row"><span>iOS SDK</span><span style="color:var(--color-success)">Active</span><span>4,201</span></div>
+                  <div class="demo-table-row"><span>Android</span><span style="color:var(--color-success)">Active</span><span>8,249</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- NAV: MOBILE -->
+      <section class="gl-section" id="s-mobile">
+        <div class="gl-section-header"><p class="gl-section-label">Navigation</p><h2 class="gl-section-title">Mobile Hamburger</h2><p class="gl-section-desc">모바일 뷰에서 Topbar/Sidebar 모두 Hamburger Drawer로 전환됩니다.</p></div>
+        <div class="preview"><div class="preview-label">Live Preview — 햄버거 버튼 클릭</div><div class="preview-body no-pad">
+          <div class="demo-mobile-outer">
+            <div class="demo-mobile">
+              <div class="demo-mobile-topbar">
+                <span class="demo-mobile-logo">Brand</span>
+                <button class="demo-hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+              </div>
+              <div class="demo-mobile-content">
+                <h3>메인 콘텐츠</h3>
+                <div class="demo-content-block"></div>
+                <div class="demo-content-block"></div>
+                <div class="demo-content-block"></div>
+              </div>
+              <div class="demo-mobile-drawer" id="mobileDrawer">
+                <a class="demo-drawer-link active"><div class="demo-drawer-icon"></div>대시보드</a>
+                <a class="demo-drawer-link"><div class="demo-drawer-icon"></div>메시지</a>
+                <a class="demo-drawer-link"><div class="demo-drawer-icon"></div>통계</a>
+                <div class="demo-drawer-divider"></div>
+                <a class="demo-drawer-link"><div class="demo-drawer-icon"></div>서비스 관리</a>
+                <a class="demo-drawer-link"><div class="demo-drawer-icon"></div>환경설정</a>
+                <div class="demo-drawer-footer">
+                  <div class="demo-drawer-user"><div class="demo-avatar">S</div><div class="demo-drawer-user-info"><p>Sean</p><span>Admin</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- Modal instances -->
+<div class="modal-overlay" id="modal1" onclick="handleOverlayClick(event,'modal1')">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1-title">
+    <div class="modal-header"><h3 class="modal-title" id="modal1-title">서비스 편집</h3><button class="modal-close" onclick="closeModal('modal1')" aria-label="모달 닫기">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">서비스명</label><input class="input" type="text" value="SPMS iOS" /></div>
+      <div class="form-group"><label class="form-label">설명</label><textarea class="input" rows="3" placeholder="서비스 설명을 입력하세요"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-md btn-secondary" onclick="closeModal('modal1')">취소</button><button class="btn btn-md btn-primary">저장</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal2" onclick="handleOverlayClick(event,'modal2')">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2-title">
+    <div class="modal-header"><h3 class="modal-title" id="modal2-title">삭제 확인</h3><button class="modal-close" onclick="closeModal('modal2')" aria-label="모달 닫기">✕</button></div>
+    <div class="modal-body"><p>이 서비스를 삭제하면 모든 관련 데이터가 영구적으로 제거됩니다. 정말 삭제하시겠습니까?</p></div>
+    <div class="modal-footer"><button class="btn btn-md btn-secondary" onclick="closeModal('modal2')">취소</button><button class="btn btn-md btn-danger">삭제</button></div>
+  </div>
+</div>
+
+<!-- 스크롤 모달 -->
+<div class="modal-overlay" id="modal-scroll" onclick="handleOverlayClick(event,'modal-scroll')">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-scroll-title">
+    <div class="modal-header"><h3 class="modal-title" id="modal-scroll-title">서비스 약관</h3><button class="modal-close" onclick="closeModal('modal-scroll')" aria-label="모달 닫기">✕</button></div>
+    <div style="padding:var(--space-4) 0">
+      <div class="modal-body-scroll">
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed)">제1조 (목적)<br>본 약관은 서비스 이용과 관련하여 필요한 사항을 규정합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제2조 (정의)<br>서비스라 함은 회사가 제공하는 모든 서비스를 의미합니다. 이용자라 함은 본 약관에 동의하고 서비스를 이용하는 자를 말합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제3조 (약관의 효력 및 변경)<br>본 약관은 서비스를 이용하고자 하는 모든 이용자에게 적용됩니다. 회사는 약관을 변경할 수 있으며, 변경된 약관은 공지 후 효력이 발생합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제4조 (서비스의 제공)<br>회사는 서비스를 연중무휴, 1일 24시간 제공함을 원칙으로 합니다. 단, 시스템 정기점검 등 부득이한 사유가 있는 경우 서비스 제공을 일시 중단할 수 있습니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제5조 (이용자의 의무)<br>이용자는 관계 법령, 본 약관의 규정, 이용안내 및 서비스와 관련하여 공지한 주의사항, 회사가 통보하는 사항 등을 준수하여야 합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제6조 (개인정보 보호)<br>회사는 이용자의 개인정보를 보호하기 위해 개인정보처리방침을 수립하고 이를 준수합니다.</p>
+    </div></div>
+    <div class="modal-footer">
+      <button class="btn btn-md btn-secondary" onclick="closeModal('modal-scroll')">닫기</button>
+      <button class="btn btn-md btn-primary">동의</button>
+    </div>
+  </div>
+</div>
+
+<!-- 하단 시트 -->
+<div class="sheet-overlay" id="sheet-overlay" onclick="closeSheet()">
+  <div class="sheet" id="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3 class="modal-title" id="sheet-title">플랫폼 선택</h3>
+      <button class="modal-close" onclick="closeSheet()" aria-label="시트 닫기">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1)">
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" checked />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">iOS (APNs)</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">Apple 푸시 알림 서비스</span></span>
+        </label>
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">Android (FCM)</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">Firebase 클라우드 메시지</span></span>
+        </label>
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">Web Push</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">브라우저 웹 푸시</span></span>
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer" style="border-top:1px solid var(--color-border);padding:var(--space-4) var(--space-6)">
+      <button class="btn btn-md btn-secondary" onclick="closeSheet()">취소</button>
+      <button class="btn btn-md btn-primary" onclick="closeSheet()">선택</button>
+    </div>
+  </div>
+</div>
+
+<!-- 사이드 드로어 -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()">
+  <div class="drawer" id="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-header">
+      <h3 class="modal-title" id="drawer-title">서비스 상세</h3>
+      <button class="modal-close" onclick="closeDrawer()" aria-label="드로어 닫기">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">서비스명</p>
+          <p style="font-size:var(--font-size-sm);font-weight:var(--font-weight-medium)">SPMS iOS</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">플랫폼</p>
+          <p style="font-size:var(--font-size-sm)">APNs</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">상태</p>
+          <span class="badge badge-success">Active</span>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">전송량</p>
+          <p style="font-size:var(--font-size-sm)">12,450건</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">성공률</p>
+          <p style="font-size:var(--font-size-sm)">98.2%</p>
+        </div>
+        <div style="height:1px;background:var(--color-border)"></div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">알림 설정</p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" checked /><div class="toggle-track"></div></label><span class="toggle-label">푸시 알림 활성화</span></div>
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" /><div class="toggle-track"></div></label><span class="toggle-label">배지 카운트</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-md btn-secondary" onclick="closeDrawer()">닫기</button>
+      <button class="btn btn-md btn-primary">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<!-- Mobile FAB -->
+<button class="gl-mobile-fab" onclick="document.getElementById('glNav').classList.toggle('open')">☰</button>
+
+<script src="main.js"></script>
+</body>
+</html>

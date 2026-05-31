@@ -1,0 +1,125 @@
+<!-- Modal instances -->
+<div class="modal-overlay" id="modal1" onclick="handleOverlayClick(event,'modal1')">
+  <div class="modal">
+    <div class="modal-header"><h3 class="modal-title">서비스 편집</h3><button class="modal-close" onclick="closeModal('modal1')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">서비스명</label><input class="input" type="text" value="SPMS iOS" /></div>
+      <div class="form-group"><label class="form-label">설명</label><textarea class="input" rows="3" placeholder="서비스 설명을 입력하세요"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-md btn-secondary" onclick="closeModal('modal1')">취소</button><button class="btn btn-md btn-primary">저장</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal2" onclick="handleOverlayClick(event,'modal2')">
+  <div class="modal">
+    <div class="modal-header"><h3 class="modal-title">삭제 확인</h3><button class="modal-close" onclick="closeModal('modal2')">✕</button></div>
+    <div class="modal-body"><p>이 서비스를 삭제하면 모든 관련 데이터가 영구적으로 제거됩니다. 정말 삭제하시겠습니까?</p></div>
+    <div class="modal-footer"><button class="btn btn-md btn-secondary" onclick="closeModal('modal2')">취소</button><button class="btn btn-md btn-danger">삭제</button></div>
+  </div>
+</div>
+
+<!-- 스크롤 모달 -->
+<div class="modal-overlay" id="modal-scroll" onclick="handleOverlayClick(event,'modal-scroll')">
+  <div class="modal">
+    <div class="modal-header"><h3 class="modal-title">서비스 약관</h3><button class="modal-close" onclick="closeModal('modal-scroll')">✕</button></div>
+    <div style="padding:var(--space-4) 0">
+      <div class="modal-body-scroll">
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed)">제1조 (목적)<br>본 약관은 서비스 이용과 관련하여 필요한 사항을 규정합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제2조 (정의)<br>서비스라 함은 회사가 제공하는 모든 서비스를 의미합니다. 이용자라 함은 본 약관에 동의하고 서비스를 이용하는 자를 말합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제3조 (약관의 효력 및 변경)<br>본 약관은 서비스를 이용하고자 하는 모든 이용자에게 적용됩니다. 회사는 약관을 변경할 수 있으며, 변경된 약관은 공지 후 효력이 발생합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제4조 (서비스의 제공)<br>회사는 서비스를 연중무휴, 1일 24시간 제공함을 원칙으로 합니다. 단, 시스템 정기점검 등 부득이한 사유가 있는 경우 서비스 제공을 일시 중단할 수 있습니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제5조 (이용자의 의무)<br>이용자는 관계 법령, 본 약관의 규정, 이용안내 및 서비스와 관련하여 공지한 주의사항, 회사가 통보하는 사항 등을 준수하여야 합니다.</p>
+      <p style="font-size:var(--font-size-sm);color:var(--color-text-secondary);line-height:var(--line-height-relaxed);margin-top:var(--space-4)">제6조 (개인정보 보호)<br>회사는 이용자의 개인정보를 보호하기 위해 개인정보처리방침을 수립하고 이를 준수합니다.</p>
+    </div></div>
+    <div class="modal-footer">
+      <button class="btn btn-md btn-secondary" onclick="closeModal('modal-scroll')">닫기</button>
+      <button class="btn btn-md btn-primary">동의</button>
+    </div>
+  </div>
+</div>
+
+<!-- 하단 시트 -->
+<div class="sheet-overlay" id="sheet-overlay" onclick="closeSheet()">
+  <div class="sheet" id="sheet-panel">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3 class="modal-title">플랫폼 선택</h3>
+      <button class="modal-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div style="display:flex;flex-direction:column;gap:var(--space-1)">
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" checked />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">iOS (APNs)</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">Apple 푸시 알림 서비스</span></span>
+        </label>
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">Android (FCM)</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">Firebase 클라우드 메시지</span></span>
+        </label>
+        <label class="check-item" style="padding:var(--space-3) var(--space-2);border-radius:var(--radius-md);transition:background var(--transition-base)" onmouseover="this.style.background='var(--color-bg-secondary)'" onmouseout="this.style.background=''">
+          <input type="radio" name="sheet-platform" />
+          <span class="radio-box"><span class="radio-dot"></span></span>
+          <span><span class="check-label" style="display:block">Web Push</span><span style="font-size:var(--font-size-xs);color:var(--color-text-muted)">브라우저 웹 푸시</span></span>
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer" style="border-top:1px solid var(--color-border);padding:var(--space-4) var(--space-6)">
+      <button class="btn btn-md btn-secondary" onclick="closeSheet()">취소</button>
+      <button class="btn btn-md btn-primary" onclick="closeSheet()">선택</button>
+    </div>
+  </div>
+</div>
+
+<!-- 사이드 드로어 -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()">
+  <div class="drawer" id="drawer-panel">
+    <div class="drawer-header">
+      <h3 class="modal-title">서비스 상세</h3>
+      <button class="modal-close" onclick="closeDrawer()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">서비스명</p>
+          <p style="font-size:var(--font-size-sm);font-weight:var(--font-weight-medium)">SPMS iOS</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">플랫폼</p>
+          <p style="font-size:var(--font-size-sm)">APNs</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">상태</p>
+          <span class="badge badge-success">Active</span>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">전송량</p>
+          <p style="font-size:var(--font-size-sm)">12,450건</p>
+        </div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)">성공률</p>
+          <p style="font-size:var(--font-size-sm)">98.2%</p>
+        </div>
+        <div style="height:1px;background:var(--color-border)"></div>
+        <div>
+          <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">알림 설정</p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" checked /><div class="toggle-track"></div></label><span class="toggle-label">푸시 알림 활성화</span></div>
+            <div class="toggle-item"><label class="toggle"><input type="checkbox" /><div class="toggle-track"></div></label><span class="toggle-label">배지 카운트</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-md btn-secondary" onclick="closeDrawer()">닫기</button>
+      <button class="btn btn-md btn-primary">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<!-- Mobile FAB -->
+<button class="gl-mobile-fab" onclick="document.getElementById('glNav').classList.toggle('open')">☰</button>

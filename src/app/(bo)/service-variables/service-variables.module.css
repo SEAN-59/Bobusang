@@ -1,0 +1,49 @@
+.variableForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 160px;
+  gap: var(--space-4);
+  align-items: end;
+}
+
+.variableForm :global(.form-group) {
+  margin-bottom: 0;
+}
+
+.variableForm :global(.btn) {
+  min-height: 38px;
+}
+
+.keyText {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.keyCopyButton {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font: inherit;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.keyCopyButton:hover,
+.keyCopyButton:focus-visible {
+  background: var(--color-accent-light);
+  outline: none;
+}
+
+.keyCopyButton:hover .keyText,
+.keyCopyButton:focus-visible .keyText {
+  color: var(--color-accent-text);
+}
+
+.valueCell {
+  color: var(--color-text-secondary);
+}

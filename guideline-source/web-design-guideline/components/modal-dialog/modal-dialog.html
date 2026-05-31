@@ -1,0 +1,43 @@
+<section class="gl-section" id="s-modal">
+  <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Modal / Dialog</h2></div>
+  <div class="preview"><div class="preview-label">Live Preview — 버튼을 클릭하세요</div><div class="preview-body">
+    <div class="comp-row">
+      <button class="btn btn-md btn-primary" onclick="openModal('modal1')">기본 모달</button>
+      <button class="btn btn-md btn-danger" onclick="openModal('modal2')">삭제 확인</button>
+      <button class="btn btn-md btn-secondary" onclick="openModal('modal-scroll')">스크롤 모달</button>
+      <button class="btn btn-md btn-secondary" onclick="openSheet()">하단 시트</button>
+      <button class="btn btn-md btn-secondary" onclick="openDrawer()">사이드 드로어</button>
+    </div>
+  </div></div>
+  <pre class="code-block">&lt;!-- 기본 모달 --&gt;
+&lt;div class="modal-overlay" id="modal"&gt;
+  &lt;div class="modal"&gt;
+    &lt;div class="modal-header"&gt;...&lt;/div&gt;
+    &lt;div class="modal-body"&gt;...&lt;/div&gt;
+    &lt;div class="modal-footer"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 스크롤 모달 (modal-body에 scroll 클래스) --&gt;
+&lt;div class="modal"&gt;
+  &lt;div class="modal-body modal-body-scroll"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 하단 시트 --&gt;
+&lt;div class="sheet-overlay" id="sheet"&gt;
+  &lt;div class="sheet"&gt;
+    &lt;div class="sheet-handle"&gt;&lt;/div&gt;
+    &lt;div class="sheet-header"&gt;...&lt;/div&gt;
+    &lt;div class="sheet-body"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 사이드 드로어 --&gt;
+&lt;div class="drawer-overlay" id="drawer"&gt;
+  &lt;div class="drawer"&gt;
+    &lt;div class="drawer-header"&gt;...&lt;/div&gt;
+    &lt;div class="drawer-body"&gt;...&lt;/div&gt;
+    &lt;div class="drawer-footer"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+</section>

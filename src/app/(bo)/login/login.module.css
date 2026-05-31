@@ -1,0 +1,313 @@
+.page {
+  --login-brand-width: 500px;
+  --login-transition-delay: 420ms;
+  --login-transition-duration: 680ms;
+
+  display: grid;
+  min-width: 1040px;
+  min-height: 100svh;
+  grid-template-columns: var(--login-brand-width) 1fr;
+  background: var(--color-bg-secondary);
+}
+
+.brandPanel {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  overflow: hidden;
+  padding: var(--space-16);
+  color: var(--color-text-inverse);
+  background:
+    linear-gradient(140deg, rgba(17, 17, 17, 0.2), rgba(17, 17, 17, 0)),
+    var(--color-accent);
+  border-radius: 0 var(--radius-2xl) var(--radius-2xl) 0;
+  will-change: transform;
+}
+
+.page:has(.loginTransitionPanel) .brandPanel {
+  animation: loginBrandRollOut 560ms cubic-bezier(.42, 0, .18, 1) forwards;
+  transform-origin: left center;
+}
+
+.page:has(.loginTransitionPanel) .brandContent {
+  animation: loginBrandContentFade 220ms ease forwards;
+}
+
+.brandPanel::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 92px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(47, 111, 94, 0), rgba(255, 255, 255, .1), rgba(47, 111, 94, .96));
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page:has(.loginTransitionPanel) .brandPanel::after {
+  animation: loginBrandRollEdge 560ms cubic-bezier(.42, 0, .18, 1) forwards;
+}
+
+.brandContent {
+  margin-block: auto;
+}
+
+.brandLogo {
+  display: block;
+  width: 220px;
+  height: auto;
+  margin-bottom: var(--space-3);
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.brandTitle {
+  max-width: 420px;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: 0;
+}
+
+.brandTitleLine {
+  display: block;
+  white-space: nowrap;
+}
+
+.brandDescription {
+  max-width: 440px;
+  margin-top: var(--space-5);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  white-space: nowrap;
+}
+
+.loginPanel {
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+}
+
+.loginBox {
+  width: 420px;
+  padding: var(--space-10);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.loginHeader {
+  margin-bottom: var(--space-8);
+}
+
+.loginHeader h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: 0;
+}
+
+.fieldStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  height: 46px;
+}
+
+.inputIconLeft,
+.inputIconRight {
+  position: absolute;
+  z-index: 1;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.inputIconLeft {
+  left: var(--space-3);
+}
+
+.inputIconRight {
+  right: var(--space-3);
+}
+
+.loginOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.autoLogin {
+  gap: var(--space-2);
+}
+
+.autoLogin :global(.check-label) {
+  color: var(--color-text-secondary);
+}
+
+.findPasswordButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.findPasswordButton:hover {
+  color: var(--color-accent);
+}
+
+.findPasswordButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.resetFieldStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.resetFieldStack :global(.form-group) {
+  margin-bottom: 0;
+}
+
+.temporaryPasswordPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 86px;
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.temporaryPasswordLabel {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.temporaryPasswordValue {
+  color: var(--color-accent);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.temporaryPasswordPlaceholder {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: var(--space-5);
+}
+
+.loginTransitionPanel {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: calc(var(--z-modal) + 2);
+  width: 100vw;
+  transform: translate3d(-100%, 0, 0);
+  transform-origin: left center;
+  background:
+    linear-gradient(140deg, rgba(17, 17, 17, 0.2), rgba(17, 17, 17, 0)),
+    var(--color-accent);
+  box-shadow: 18px 0 34px rgba(17, 17, 17, 0.18);
+  pointer-events: none;
+  animation: loginSuccessPaint var(--login-transition-duration) cubic-bezier(.22, 1, .36, 1) var(--login-transition-delay) forwards;
+  contain: paint;
+  will-change: transform;
+}
+
+.loginTransitionPanel::after {
+  position: absolute;
+  top: 0;
+  right: -88px;
+  width: 88px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(47, 111, 94, 0.92), rgba(47, 111, 94, 0.42), rgba(47, 111, 94, 0));
+  content: "";
+}
+
+@keyframes loginBrandRollOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(var(--login-brand-width) * -1));
+  }
+}
+
+@keyframes loginBrandRollEdge {
+  0% {
+    opacity: 0;
+  }
+
+  18%,
+  78% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loginBrandContentFade {
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes loginSuccessPaint {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  88%,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

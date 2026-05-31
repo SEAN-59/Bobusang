@@ -1,0 +1,24 @@
+<section class="gl-section" id="s-pagination">
+  <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Pagination</h2></div>
+  <div class="preview"><div class="preview-label">Live Demo — 버튼을 클릭하세요</div><div class="preview-body">
+    <div class="comp-col" style="gap:var(--space-6)">
+      <!-- 페이지 적을 때 -->
+      <div>
+        <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">페이지 수 적을 때 (5개 이하)</p>
+        <nav class="pagination" id="demo-pg1"></nav>
+      </div>
+      <!-- 페이지 많을 때 -->
+      <div>
+        <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">페이지 수 많을 때 (100페이지)</p>
+        <nav class="pagination" id="demo-pg2"></nav>
+      </div>
+    </div>
+  </div></div>
+  <pre class="code-block">/* buildPagination(current, total, onClick) 함수로 생성 */
+
+/* 패턴: [처음 아이콘] [이전 아이콘] [윈도우 5개] [다음 아이콘] [마지막 아이콘] */
+/* - 1페이지면 처음/이전 비활성               */
+/* - 첫 윈도우 밖이면 처음 아이콘으로 첫 페이지로  */
+/* - 윈도우: 현재 페이지 중심 앞뒤 2개    */
+/* - 마지막 근처면 ... 없이 끝까지 표시   */</pre>
+</section>

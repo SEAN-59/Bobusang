@@ -1,0 +1,12 @@
+.git
+.next
+node_modules
+npm-debug.log
+Dockerfile
+compose*.yaml
+.env
+.env.*
+private
+docs
+temp
+.DS_Store
