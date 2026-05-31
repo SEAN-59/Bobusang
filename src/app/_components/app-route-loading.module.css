@@ -1,0 +1,145 @@
+.root {
+  min-height: 100svh;
+}
+
+.overlay,
+.overlayFull {
+  position: fixed;
+  z-index: var(--z-overlay);
+  padding: var(--space-12);
+  background: var(--color-bg-secondary);
+}
+
+.overlay {
+  inset: 0 0 0 200px;
+}
+
+.overlayFull {
+  inset: 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-height: calc(100svh - (var(--space-12) * 2));
+}
+
+.title {
+  width: 192px;
+  height: 48px;
+  border-radius: var(--radius-md);
+}
+
+.summary,
+.search,
+.list {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: 108px;
+  padding: var(--space-6);
+}
+
+.heading {
+  width: 160px;
+  height: 24px;
+}
+
+.textShort {
+  width: 260px;
+  height: 14px;
+  margin-top: var(--space-3);
+}
+
+.button {
+  width: 88px;
+  height: 42px;
+  border-radius: var(--radius-md);
+}
+
+.search {
+  height: 78px;
+  position: relative;
+}
+
+.search::before,
+.search::after {
+  position: absolute;
+  background: linear-gradient(90deg, var(--color-bg-tertiary) 25%, var(--color-bg-secondary) 50%, var(--color-bg-tertiary) 75%);
+  background-size: 800px 100%;
+  border-radius: var(--radius-md);
+  content: "";
+  animation: routeShimmer 1.4s infinite;
+}
+
+.search::before {
+  inset: 20px 104px 20px 28px;
+}
+
+.search::after {
+  top: 20px;
+  right: 28px;
+  width: 58px;
+  height: 38px;
+}
+
+.list {
+  min-height: 500px;
+  padding: var(--space-6);
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-top: var(--space-6);
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 0.8fr 0.6fr;
+  gap: var(--space-8);
+  align-items: center;
+  min-height: 42px;
+}
+
+.cellLarge,
+.cell {
+  height: 18px;
+}
+
+.cellLarge {
+  width: 100%;
+}
+
+.cell {
+  width: 82%;
+}
+
+@keyframes routeShimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AppRouteLoading } from "./_components/app-route-loading";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <AppRouteLoading>{children}</AppRouteLoading>
+      </body>
     </html>
   );
 }
