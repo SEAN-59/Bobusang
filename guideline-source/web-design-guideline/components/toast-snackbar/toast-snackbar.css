@@ -1,0 +1,32 @@
+.toast-container{position:fixed;bottom:var(--space-6);right:var(--space-6);z-index:var(--z-toast);display:flex;flex-direction:column;gap:var(--space-2);pointer-events:none;}
+.toast{display:flex;align-items:flex-start;gap:var(--space-3);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-lg);min-width:280px;max-width:360px;pointer-events:auto;will-change:transform,opacity;transition:transform 260ms cubic-bezier(.16,1,.3,1),opacity 220ms ease;}
+.toast.toast-entering{animation:toastSlideIn 320ms cubic-bezier(.16,1,.3,1) both;}
+@keyframes toastSlideIn{from{opacity:0;transform:translateY(32px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.toast.removing{pointer-events:none;animation:toastSlideOutRight 220ms ease-in forwards;}
+@keyframes toastSlideOutRight{to{opacity:0;transform:translateX(32px) scale(.98);}}
+.toast-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;margin-top:1px;}
+.toast-icon.success{background:var(--color-success-light);color:var(--color-success);}
+.toast-icon.warning{background:var(--color-warning-light);color:var(--color-warning);}
+.toast-icon.danger{background:var(--color-danger-light);color:var(--color-danger);}
+.toast-icon.info{background:var(--color-info-light);color:var(--color-info);}
+.toast-content{flex:1;}
+.toast-title{font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold);margin-bottom:2px;}
+.toast-msg{font-size:var(--font-size-xs);color:var(--color-text-secondary);}
+.toast-close{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:none;background:none;cursor:pointer;color:var(--color-text-muted);font-size:14px;border-radius:var(--radius-sm);flex-shrink:0;transition:all var(--transition-base);}
+.toast-close:hover{background:var(--color-bg-secondary);color:var(--color-text-primary);}
+.toast-demo-list{display:flex;flex-direction:column;gap:var(--space-2);}
+.toast-demo-list .toast{animation:none;transition:none;will-change:auto;}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .toast.toast-entering,
+  .toast.removing {
+    animation-duration:1ms;
+    transition-duration:1ms;
+  }
+}
+
+@media(max-width:640px){
+  .toast-container{left:var(--space-4);right:var(--space-4);bottom:var(--space-4);}
+  .toast{width:100%;min-width:0;max-width:none;}
+}

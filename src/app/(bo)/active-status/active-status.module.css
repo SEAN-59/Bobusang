@@ -1,0 +1,70 @@
+.listCard {
+  margin-top: var(--space-4);
+}
+
+.tableFilter {
+  padding: var(--space-4) var(--space-6) 0;
+}
+
+.tableFilter + :global(.table-wrap) {
+  margin-top: var(--space-4);
+}
+
+.uuidCol {
+  width: 38%;
+}
+
+.statusCol {
+  width: 10%;
+}
+
+.osCol {
+  width: 10%;
+}
+
+.versionCol {
+  width: 10%;
+}
+
+.deviceCol {
+  width: 18%;
+}
+
+.accessCol {
+  width: 14%;
+}
+
+.osIcon {
+  color: var(--color-text-secondary);
+}
+
+.uuidButton {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-2);
+  min-width: 0;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+}
+
+.uuidButton:hover,
+.uuidButton:focus-visible {
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  border-color: var(--color-accent-border);
+}
+
+.uuidButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

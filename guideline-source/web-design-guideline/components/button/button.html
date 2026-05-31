@@ -1,0 +1,20 @@
+<section class="gl-section" id="s-button">
+  <div class="gl-section-header">
+    <p class="gl-section-label">Component</p>
+    <h2 class="gl-section-title">Button</h2>
+    <p class="gl-section-desc">버튼은 화면별 액션을 실행하는 트리거입니다. 기본 컴포넌트는 상태 표현을 제공하고, 클릭 이후의 업무 로직은 사용하는 화면에서 연결합니다.</p>
+  </div>
+  <div class="preview"><div class="preview-label">Variant</div><div class="preview-body"><div class="comp-row"><button class="btn btn-md btn-primary" onclick="showButtonAction('Primary')">Primary</button><button class="btn btn-md btn-secondary" onclick="showButtonAction('Secondary')">Secondary</button><button class="btn btn-md btn-ghost" onclick="showButtonAction('Ghost')">Ghost</button><button class="btn btn-md btn-danger" onclick="showButtonAction('Danger')">Danger</button></div></div></div>
+  <div class="preview"><div class="preview-label">Size</div><div class="preview-body"><div class="comp-row"><button class="btn btn-sm btn-primary" onclick="showButtonAction('Small')">Small</button><button class="btn btn-md btn-primary" onclick="showButtonAction('Medium')">Medium</button><button class="btn btn-lg btn-primary" onclick="showButtonAction('Large')">Large</button></div></div></div>
+  <div class="preview"><div class="preview-label">Interaction State</div><div class="preview-body"><div class="comp-row"><button class="btn btn-md btn-primary">Default</button><button class="btn btn-md btn-primary is-hover">Hover</button><button class="btn btn-md btn-primary is-pressed">Pressed</button><button class="btn btn-md btn-primary is-focus">Focus</button><button class="btn btn-md btn-primary is-loading" aria-busy="true" aria-disabled="true" onclick="showButtonAction('Loading')"><span class="btn-spinner" aria-hidden="true"></span>Loading</button><button class="btn btn-md btn-primary" disabled>Disabled</button></div></div></div>
+  <div class="preview"><div class="preview-label">Full Width</div><div class="preview-body"><button class="btn btn-md btn-primary btn-block" onclick="showButtonAction('Full width')">Full width action</button></div></div>
+  <pre class="code-block">&lt;button class="btn btn-md btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary" onclick="submitForm()"&gt;저장&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary is-loading" aria-busy="true" aria-disabled="true"&gt;
+  &lt;span class="btn-spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  저장 중
+&lt;/button&gt;
+&lt;button class="btn btn-sm btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-lg btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-md btn-danger"&gt;Danger&lt;/button&gt;</pre>
+</section>

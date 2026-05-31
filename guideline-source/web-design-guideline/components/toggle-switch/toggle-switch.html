@@ -1,0 +1,72 @@
+<section class="gl-section" id="s-toggle">
+  <div class="gl-section-header">
+    <p class="gl-section-label">Component</p>
+    <h2 class="gl-section-title">Toggle / Switch</h2>
+  </div>
+  <div class="preview"><div class="preview-label">States</div><div class="preview-body">
+    <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+      <div class="toggle-item"><label class="toggle"><input type="checkbox" checked /><div class="toggle-track"></div></label><span class="toggle-label">활성화 (On)</span></div>
+      <div class="toggle-item"><label class="toggle"><input type="checkbox" /><div class="toggle-track"></div></label><span class="toggle-label">비활성화 (Off)</span></div>
+      <div class="toggle-item"><label class="toggle"><input type="checkbox" disabled /><div class="toggle-track"></div></label><span class="toggle-label" style="color:var(--color-text-disabled)">비활성 (Disabled)</span></div>
+    </div>
+  </div></div>
+
+  <div class="preview"><div class="preview-label">Button Toggle</div><div class="preview-body">
+    <div style="display:flex;flex-direction:column;gap:var(--space-6)">
+
+      <!-- 단일 버튼 토글 -->
+      <div>
+        <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">단일 버튼</p>
+        <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+          <button class="btn-toggle active" onclick="toggleBtnClick(this)">
+            <span class="btn-toggle-dot"></span>알림 활성화
+          </button>
+          <button class="btn-toggle" onclick="toggleBtnClick(this)">
+            <span class="btn-toggle-dot"></span>다크 모드
+          </button>
+          <button class="btn-toggle active" disabled>
+            <span class="btn-toggle-dot"></span>비활성 (On)
+          </button>
+          <button class="btn-toggle" disabled>
+            <span class="btn-toggle-dot"></span>비활성 (Off)
+          </button>
+        </div>
+      </div>
+
+      <!-- 그룹 버튼 토글 (단일 선택) -->
+      <div>
+        <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">그룹 (단일 선택)</p>
+        <div class="btn-toggle-group" id="toggleGroup1">
+          <div class="btn-toggle-indicator" id="toggleGroup1-indicator"></div>
+          <button class="btn-toggle-seg active" onclick="toggleSegClick(this, 'toggleGroup1')">전체</button>
+          <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">iOS</button>
+          <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">Android</button>
+          <button class="btn-toggle-seg" onclick="toggleSegClick(this, 'toggleGroup1')">Web</button>
+        </div>
+      </div>
+
+      <!-- 그룹 버튼 토글 (다중 선택) -->
+      <div>
+        <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)">그룹 (다중 선택)</p>
+        <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+          <button class="btn-toggle active" onclick="toggleBtnClick(this)">푸시 알림</button>
+          <button class="btn-toggle active" onclick="toggleBtnClick(this)">이메일</button>
+          <button class="btn-toggle" onclick="toggleBtnClick(this)">SMS</button>
+          <button class="btn-toggle" onclick="toggleBtnClick(this)">카카오톡</button>
+        </div>
+      </div>
+
+    </div>
+  </div></div>
+
+  <pre class="code-block">&lt;!-- 단일 버튼 토글 --&gt;
+&lt;button class="btn-toggle active" onclick="toggleBtnClick(this)"&gt;
+  &lt;span class="btn-toggle-dot"&gt;&lt;/span&gt;알림 활성화
+&lt;/button&gt;
+
+&lt;!-- 세그먼트 그룹 (단일 선택) --&gt;
+&lt;div class="btn-toggle-group" id="group"&gt;
+  &lt;button class="btn-toggle-seg active" onclick="toggleSegClick(this, 'group')"&gt;전체&lt;/button&gt;
+  &lt;button class="btn-toggle-seg" onclick="toggleSegClick(this, 'group')"&gt;iOS&lt;/button&gt;
+&lt;/div&gt;</pre>
+</section>

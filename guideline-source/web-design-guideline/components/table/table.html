@@ -1,0 +1,151 @@
+<section class="gl-section" id="s-table">
+  <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Table</h2></div>
+
+  <!-- 행 선택 + 정렬 + 페이지네이션 -->
+  <div class="preview"><div class="preview-label">정렬 1 · 헤더 클릭 오름/내림차순 · 행 선택 · 페이지네이션</div><div class="preview-body no-pad">
+
+    <!-- 툴바 -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border);background:var(--color-bg-secondary);min-height:44px;">
+      <span id="tbl-info" style="font-size:var(--font-size-xs);color:var(--color-text-muted)">전체 8개</span>
+      <div id="tbl-bulk" style="display:none;gap:var(--space-2);align-items:center">
+        <span id="tbl-selected-count" style="font-size:var(--font-size-xs);color:var(--color-accent);font-weight:var(--font-weight-medium)"></span>
+        <button class="btn btn-sm btn-secondary">내보내기</button>
+        <button class="btn btn-sm btn-danger">삭제</button>
+      </div>
+    </div>
+
+    <!-- 테이블 -->
+    <div class="table-wrap" style="border-radius:0;border:none;border-bottom:1px solid var(--color-border)">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th style="width:44px;text-align:center">
+              <!-- 전체선택 체크박스 — 기존 check-item 컴포넌트 사용 -->
+              <label class="check-item" style="justify-content:center;margin:0">
+                <input type="checkbox" id="tbl-all" onchange="tblSelectAll(this)" />
+                <span class="check-box" style="width:15px;height:15px">
+                  <svg width="9" height="9" viewBox="0 0 10 10">
+                    <path class="check-path" d="M1.5 5l2.5 2.5 4.5-5"/>
+                    <line class="indeterminate-path" x1="2" y1="5" x2="8" y2="5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </label>
+            </th>
+            <th class="th-sort" onclick="tblSort('name')">서비스명 <span id="si-name" class="sort-icon">↕</span></th>
+            <th class="th-sort" onclick="tblSort('platform')">플랫폼 <span id="si-platform" class="sort-icon">↕</span></th>
+            <th>상태</th>
+            <th class="th-sort" onclick="tblSort('send')">전송량 <span id="si-send" class="sort-icon">↕</span></th>
+            <th class="th-sort" onclick="tblSort('rate')">성공률 <span id="si-rate" class="sort-icon">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+
+    <!-- 페이지네이션 — 기존 pagination 컴포넌트 사용 -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) var(--space-5)">
+      <span id="tbl-page-info" style="font-size:var(--font-size-xs);color:var(--color-text-muted)"></span>
+      <nav class="pagination" id="tbl-pagination"></nav>
+    </div>
+
+  </div></div>
+
+  <!-- 정렬 드롭다운 -->
+  <div class="preview"><div class="preview-label">정렬 2 · 타이틀 선택 드롭다운</div><div class="preview-body no-pad">
+    <div class="table-wrap" style="border-radius:0;border:none">
+      <table id="dropdownSortTable">
+        <thead>
+          <tr>
+            <th>
+              <span class="table-sort-dropdown dropdown">
+                <button class="table-title-menu" id="tbl-dd-sort-name-btn" onclick="toggleDropdown('tbl-dd-sort-name')" aria-expanded="false">
+                  서비스명
+                  <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-name">
+                  <button class="dropdown-item" data-sort-col="name" data-sort-dir="asc" onclick="tblDropdownSort('name','asc')">오름차순 <span>↑</span></button>
+                  <button class="dropdown-item" data-sort-col="name" data-sort-dir="desc" onclick="tblDropdownSort('name','desc')">내림차순 <span>↓</span></button>
+                  <button class="dropdown-item" data-sort-col="name" data-sort-dir="none" onclick="tblDropdownSort('name','none')">정렬 해제 <span>↕</span></button>
+                </div>
+              </span>
+            </th>
+            <th>
+              <span class="table-sort-dropdown dropdown">
+                <button class="table-title-menu" id="tbl-dd-sort-platform-btn" onclick="toggleDropdown('tbl-dd-sort-platform')" aria-expanded="false">
+                  플랫폼
+                  <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-platform">
+                  <button class="dropdown-item" data-sort-col="platform" data-sort-dir="asc" onclick="tblDropdownSort('platform','asc')">오름차순 <span>↑</span></button>
+                  <button class="dropdown-item" data-sort-col="platform" data-sort-dir="desc" onclick="tblDropdownSort('platform','desc')">내림차순 <span>↓</span></button>
+                  <button class="dropdown-item" data-sort-col="platform" data-sort-dir="none" onclick="tblDropdownSort('platform','none')">정렬 해제 <span>↕</span></button>
+                </div>
+              </span>
+            </th>
+            <th>
+              <span class="table-sort-dropdown dropdown">
+                <button class="table-title-menu" id="tbl-dd-sort-status-btn" onclick="toggleDropdown('tbl-dd-sort-status')" aria-expanded="false">
+                  상태
+                  <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-status">
+                  <button class="dropdown-item" data-sort-col="status" data-sort-dir="asc" onclick="tblDropdownSort('status','asc')">오름차순 <span>↑</span></button>
+                  <button class="dropdown-item" data-sort-col="status" data-sort-dir="desc" onclick="tblDropdownSort('status','desc')">내림차순 <span>↓</span></button>
+                  <button class="dropdown-item" data-sort-col="status" data-sort-dir="none" onclick="tblDropdownSort('status','none')">정렬 해제 <span>↕</span></button>
+                </div>
+              </span>
+            </th>
+            <th>
+              <span class="table-sort-dropdown dropdown">
+                <button class="table-title-menu" id="tbl-dd-sort-send-btn" onclick="toggleDropdown('tbl-dd-sort-send')" aria-expanded="false">
+                  전송량
+                  <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-send">
+                  <button class="dropdown-item" data-sort-col="send" data-sort-dir="asc" onclick="tblDropdownSort('send','asc')">오름차순 <span>↑</span></button>
+                  <button class="dropdown-item" data-sort-col="send" data-sort-dir="desc" onclick="tblDropdownSort('send','desc')">내림차순 <span>↓</span></button>
+                  <button class="dropdown-item" data-sort-col="send" data-sort-dir="none" onclick="tblDropdownSort('send','none')">정렬 해제 <span>↕</span></button>
+                </div>
+              </span>
+            </th>
+            <th>
+              <span class="table-sort-dropdown dropdown">
+                <button class="table-title-menu" id="tbl-dd-sort-rate-btn" onclick="toggleDropdown('tbl-dd-sort-rate')" aria-expanded="false">
+                  성공률
+                  <span class="table-title-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+                <div class="dropdown-menu table-sort-menu" id="tbl-dd-sort-rate">
+                  <button class="dropdown-item" data-sort-col="rate" data-sort-dir="asc" onclick="tblDropdownSort('rate','asc')">오름차순 <span>↑</span></button>
+                  <button class="dropdown-item" data-sort-col="rate" data-sort-dir="desc" onclick="tblDropdownSort('rate','desc')">내림차순 <span>↓</span></button>
+                  <button class="dropdown-item" data-sort-col="rate" data-sort-dir="none" onclick="tblDropdownSort('rate','none')">정렬 해제 <span>↕</span></button>
+                </div>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tbl-dropdown-body"></tbody>
+      </table>
+    </div>
+  </div></div>
+
+  <!-- Empty State 연동 -->
+  <div class="preview"><div class="preview-label">Empty State 연동</div><div class="preview-body no-pad">
+    <div class="table-wrap" style="border-radius:0;border:none">
+      <table>
+        <thead><tr><th style="width:44px"></th><th>서비스명</th><th>플랫폼</th><th>상태</th><th>전송량</th></tr></thead>
+        <tbody>
+          <tr><td colspan="5" style="padding:0;border:none">
+            <!-- Empty State 컴포넌트 그대로 사용 -->
+            <div class="empty-state" style="padding:var(--space-10) var(--space-6)">
+              <div class="empty-icon">📋</div>
+              <p class="empty-title">데이터가 없습니다</p>
+              <p class="empty-desc">등록된 서비스가 없습니다. 새 서비스를 추가하면 여기에 표시됩니다.</p>
+              <button class="btn btn-md btn-primary">+ 서비스 추가</button>
+            </div>
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div></div>
+
+</section>

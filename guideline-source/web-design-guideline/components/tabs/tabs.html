@@ -1,0 +1,93 @@
+<section class="gl-section" id="s-tabs">
+  <div class="gl-section-header"><p class="gl-section-label">Component</p><h2 class="gl-section-title">Tabs</h2></div>
+
+  <!-- Underline + 슬라이딩 -->
+  <div class="preview"><div class="preview-label">Underline — 슬라이딩 애니메이션</div><div class="preview-body">
+    <div class="tabs tabs-sliding" id="tabs1">
+      <div class="tabs-list" style="position:relative">
+        <div class="tab-sliding-indicator" id="tabs1-indicator"></div>
+        <button class="tab-item active" onclick="switchTabSlide('tabs1',0)">개요</button>
+        <button class="tab-item" onclick="switchTabSlide('tabs1',1)">상세 정보</button>
+        <button class="tab-item" onclick="switchTabSlide('tabs1',2)">히스토리</button>
+        <button class="tab-item" onclick="switchTabSlide('tabs1',3)">설정</button>
+      </div>
+      <div class="tab-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">상세 정보 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">설정 탭 콘텐츠입니다.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 아이콘 + 텍스트 -->
+  <div class="preview"><div class="preview-label">아이콘 + 텍스트</div><div class="preview-body">
+    <div class="tabs tabs-sliding" id="tabs2">
+      <div class="tabs-list" style="position:relative">
+        <div class="tab-sliding-indicator" id="tabs2-indicator"></div>
+        <button class="tab-item tab-icon active" onclick="switchTabSlide('tabs2',0)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/></svg>
+          개요
+        </button>
+        <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',1)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          히스토리
+        </button>
+        <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',2)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2a6 6 0 100 12A6 6 0 008 2z" stroke="currentColor" stroke-width="1.4"/><path d="M8 6v2l1.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          통계
+        </button>
+        <button class="tab-item tab-icon" onclick="switchTabSlide('tabs2',3)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          계정
+        </button>
+      </div>
+      <div class="tab-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">통계 탭 콘텐츠입니다.</p></div>
+      <div class="tab-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">계정 탭 콘텐츠입니다.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 수직 탭 -->
+  <div class="preview"><div class="preview-label">수직 탭 (Vertical)</div><div class="preview-body no-pad">
+    <div class="tabs-vertical" id="tabs3">
+      <div class="tabs-vertical-list">
+        <div class="tab-v-indicator" id="tabs3-indicator"></div>
+        <button class="tab-v-item active" onclick="switchTabV('tabs3',0)">개요</button>
+        <button class="tab-v-item" onclick="switchTabV('tabs3',1)">상세 정보</button>
+        <button class="tab-v-item" onclick="switchTabV('tabs3',2)">히스토리</button>
+        <button class="tab-v-item" onclick="switchTabV('tabs3',3)">설정</button>
+      </div>
+      <div class="tabs-vertical-content">
+        <div class="tab-v-panel active"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">개요 탭 콘텐츠입니다.</p></div>
+        <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">상세 정보 탭 콘텐츠입니다.</p></div>
+        <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">히스토리 탭 콘텐츠입니다.</p></div>
+        <div class="tab-v-panel"><p style="font-size:var(--font-size-sm);color:var(--color-text-secondary)">설정 탭 콘텐츠입니다.</p></div>
+      </div>
+    </div>
+  </div></div>
+
+  <pre class="code-block">&lt;!-- Underline 슬라이딩 --&gt;
+&lt;div class="tabs tabs-sliding"&gt;
+  &lt;div class="tabs-list" style="position:relative"&gt;
+    &lt;div class="tab-sliding-indicator" id="tabs-indicator"&gt;&lt;/div&gt;
+    &lt;button class="tab-item active" onclick="switchTabSlide('tabs',0)"&gt;탭 1&lt;/button&gt;
+    &lt;button class="tab-item" onclick="switchTabSlide('tabs',1)"&gt;탭 2&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-panel active"&gt;콘텐츠 1&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 아이콘 + 텍스트 --&gt;
+&lt;button class="tab-item tab-icon active"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;개요
+&lt;/button&gt;
+
+&lt;!-- 수직 탭 --&gt;
+&lt;div class="tabs-vertical"&gt;
+  &lt;div class="tabs-vertical-list"&gt;
+    &lt;button class="tab-v-item active"&gt;탭 1&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tabs-vertical-content"&gt;
+    &lt;div class="tab-v-panel active"&gt;콘텐츠 1&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+</section>
