@@ -173,8 +173,24 @@ jobs:
           IMAGE_VAR='${IMAGE_VAR}'
           IMAGE_REF='${IMAGE_REF}'
 
+          PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:\${PATH:-}"
+          DOCKER_BIN="\$(command -v docker || true)"
+          if [[ -z "\${DOCKER_BIN}" ]]; then
+            for candidate in /usr/local/bin/docker /usr/bin/docker /bin/docker; do
+              if [[ -x "\${candidate}" ]]; then
+                DOCKER_BIN="\${candidate}"
+                break
+              fi
+            done
+          fi
+
+          if [[ -z "\${DOCKER_BIN}" ]]; then
+            echo "docker command not found on NAS. Install Docker or expose it in PATH." >&2
+            exit 127
+          fi
+
           cd "\${COMPOSE_PATH}"
-          printf '%s\n' "\${GHCR_TOKEN}" | docker login ghcr.io -u "\${GHCR_USERNAME}" --password-stdin
+          printf '%s\n' "\${GHCR_TOKEN}" | "\${DOCKER_BIN}" login ghcr.io -u "\${GHCR_USERNAME}" --password-stdin
 
           if [[ -f .env && -n "\$(grep -E "^\${IMAGE_VAR}=" .env || true)" ]]; then
             tmp_file="\$(mktemp)"
@@ -189,7 +205,7 @@ jobs:
             printf '\n%s=%s\n' "\${IMAGE_VAR}" "\${IMAGE_REF}" >> .env
           fi
 
-          docker compose -f compose.yaml pull "\${SERVICE}"
-          docker compose -f compose.yaml up -d "\${SERVICE}"
-          docker compose -f compose.yaml ps "\${SERVICE}"
+          "\${DOCKER_BIN}" compose -f compose.yaml pull "\${SERVICE}"
+          "\${DOCKER_BIN}" compose -f compose.yaml up -d "\${SERVICE}"
+          "\${DOCKER_BIN}" compose -f compose.yaml ps "\${SERVICE}"
           EOF
