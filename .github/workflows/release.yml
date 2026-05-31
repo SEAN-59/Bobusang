@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Image tag to build and deploy. Example: v2.0.0-alpha.1"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -21,6 +27,10 @@ jobs:
   build-and-push:
     name: Build and push GHCR image
     runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.image.outputs.image }}
+      tag_name: ${{ steps.image.outputs.tag_name }}
+      version: ${{ steps.image.outputs.version }}
 
     steps:
       - name: Checkout
@@ -51,14 +61,27 @@ jobs:
       - name: Prepare image tags
         id: image
         shell: bash
+        env:
+          INPUT_IMAGE_TAG: ${{ inputs.image_tag || '' }}
         run: |
           tag_name="${GITHUB_REF_NAME}"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            tag_name="${INPUT_IMAGE_TAG}"
+          fi
+
+          if [[ ! "${tag_name}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid tag: ${tag_name}" >&2
+            exit 1
+          fi
+
           version="${tag_name#v}"
           owner="${GITHUB_REPOSITORY_OWNER,,}"
           image="${REGISTRY}/${owner}/${IMAGE_REPOSITORY}"
 
           {
             echo "image=${image}"
+            echo "tag_name=${tag_name}"
             echo "version=${version}"
             echo "tags<<EOF"
             echo "${image}:${tag_name}"
@@ -84,3 +107,89 @@ jobs:
             org.opencontainers.image.version=${{ steps.image.outputs.version }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy NAS compose
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Resolve deploy target
+        id: deploy
+        shell: bash
+        env:
+          IMAGE: ${{ needs.build-and-push.outputs.image }}
+          TAG_NAME: ${{ needs.build-and-push.outputs.tag_name }}
+        run: |
+          image_ref="${IMAGE}:${TAG_NAME}"
+
+          if [[ "${TAG_NAME}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            service="release_app"
+            image_var="BOBUSANG_RELEASE_IMAGE"
+          else
+            service="dev_app"
+            image_var="BOBUSANG_DEV_IMAGE"
+          fi
+
+          {
+            echo "image_ref=${image_ref}"
+            echo "service=${service}"
+            echo "image_var=${image_var}"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: Configure SSH
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p "${HOME}/.ssh"
+          install -m 600 /dev/null "${HOME}/.ssh/bobusang_deploy_key"
+          printf '%s\n' "${SSH_PRIVATE_KEY}" > "${HOME}/.ssh/bobusang_deploy_key"
+          ssh-keyscan -p "${SSH_PORT}" -H "${SSH_HOST}" >> "${HOME}/.ssh/known_hosts"
+
+      - name: Deploy compose service
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          COMPOSE_PATH: ${{ secrets.COMPOSE_PATH }}
+          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          SERVICE: ${{ steps.deploy.outputs.service }}
+          IMAGE_VAR: ${{ steps.deploy.outputs.image_var }}
+          IMAGE_REF: ${{ steps.deploy.outputs.image_ref }}
+        run: |
+          ssh -i "${HOME}/.ssh/bobusang_deploy_key" -p "${SSH_PORT}" "${SSH_USER}@${SSH_HOST}" \
+            "bash -s" << EOF
+          set -euo pipefail
+
+          COMPOSE_PATH='${COMPOSE_PATH}'
+          GHCR_USERNAME='${GHCR_USERNAME}'
+          GHCR_TOKEN='${GHCR_TOKEN}'
+          SERVICE='${SERVICE}'
+          IMAGE_VAR='${IMAGE_VAR}'
+          IMAGE_REF='${IMAGE_REF}'
+
+          cd "\${COMPOSE_PATH}"
+          printf '%s\n' "\${GHCR_TOKEN}" | docker login ghcr.io -u "\${GHCR_USERNAME}" --password-stdin
+
+          if [[ -f .env && -n "\$(grep -E "^\${IMAGE_VAR}=" .env || true)" ]]; then
+            tmp_file="\$(mktemp)"
+            awk -v key="\${IMAGE_VAR}" -v value="\${IMAGE_REF}" '
+              BEGIN { updated = 0 }
+              \$0 ~ "^" key "=" { print key "=" value; updated = 1; next }
+              { print }
+              END { if (!updated) print key "=" value }
+            ' .env > "\${tmp_file}"
+            mv "\${tmp_file}" .env
+          else
+            printf '\n%s=%s\n' "\${IMAGE_VAR}" "\${IMAGE_REF}" >> .env
+          fi
+
+          docker compose -f compose.yaml pull "\${SERVICE}"
+          docker compose -f compose.yaml up -d "\${SERVICE}"
+          docker compose -f compose.yaml ps "\${SERVICE}"
+          EOF
